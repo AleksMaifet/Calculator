@@ -1,0 +1,101 @@
+{
+  "extends": [
+    "standard",
+    "standard-react",
+    "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "import",
+    "unused-imports"
+  ],
+  "rules": {
+    "import/no-unresolved": 0,
+    "react/no-unescaped-entities": "off",
+    "import/no-anonymous-default-export": "off",
+    "react/display-name": "off",
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "./**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ]
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "node_modules/"
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          [
+            "@/public",
+            "./public"
+          ],
+          [
+            "@/components",
+            "./components"
+          ],
+          [
+            "@/assets",
+            "./assets"
+          ],
+          [
+            "@/routes",
+            "./routes"
+          ],
+          [
+            "@/state",
+            "./state"
+          ],
+          [
+            "@/utils",
+            "./utils"
+          ],
+          [
+            "@/pages",
+            "./pages"
+          ],
+          [
+            "@/theme",
+            "./theme"
+          ]
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".json"
+        ]
+      }
+    }
+  }
+}
+
