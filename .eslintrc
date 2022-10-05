@@ -2,9 +2,9 @@
   "extends": [
     "standard",
     "standard-react",
-    "prettier",
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "env": {
     "browser": true,
@@ -19,10 +19,24 @@
     "sourceType": "module"
   },
   "plugins": [
+    "react",
+    "prettier",
+    "react-hooks",
     "import",
-    "unused-imports"
+    "unused-imports",
+    "prettier"
   ],
   "rules": {
+    "no-plusplus": "error",
+    "no-magic-numbers": "off",
+    "no-use-before-define": "off",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "react/prop-types": 0,
     "import/no-unresolved": 0,
     "react/no-unescaped-entities": "off",
     "import/no-anonymous-default-export": "off",
@@ -45,7 +59,18 @@
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": [
           "builtin"
-        ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
       }
     ]
   },

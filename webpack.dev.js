@@ -1,12 +1,12 @@
-const { merge } = require("webpack-merge");
+const { merge } = require('webpack-merge');
 
-const common = require("./webpack.config.js");
+const common = require('./webpack.config.js');
 
 module.exports = merge(common, {
-  mode: "development",
+  mode: 'development',
   devServer: {
-    host: "localhost",
+    host: 'localhost',
     port: 3030,
-    historyApiFallback: true
-  }
+    historyApiFallback: true,
+  },
 });

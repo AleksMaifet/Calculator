@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import { ErrorContainer, ErrorText } from "./styles";
+import { ErrorContainer, ErrorText } from './styles';
 
-const ERROR_TITLE = "Something wrong!";
-const ERROR_TEXT = "May be: ";
+const ERROR_TITLE = 'Something wrong!';
+const ERROR_TEXT = 'May be: ';
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: "" };
+    this.state = { hasError: '' };
   }
 
   static getDerivedStateFromError(error) {
@@ -26,7 +26,10 @@ export class ErrorBoundary extends React.Component {
       return (
         <ErrorContainer id="errorContainer">
           <ErrorText>{ERROR_TITLE}</ErrorText>
-          <ErrorText>{ERROR_TEXT}{hasError}</ErrorText>
+          <ErrorText>
+            {ERROR_TEXT}
+            {hasError}
+          </ErrorText>
         </ErrorContainer>
       );
     }
@@ -35,5 +38,5 @@ export class ErrorBoundary extends React.Component {
 }
 
 ErrorBoundary.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
