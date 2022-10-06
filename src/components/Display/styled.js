@@ -16,5 +16,5 @@ export const DisplayHistory = styled.span`
 `;
 
 export const DisplayCurrent = styled.span`
-  font-size: ${theme.textStyle.xl}rem;
+  font-size: ${theme.textStyle.xll}rem;
 `;

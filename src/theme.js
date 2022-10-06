@@ -45,6 +45,7 @@ const textStyle = {
   md: 2,
   lg: 3,
   xl: 4,
+  xll: 5,
 };
 
 /// Responsive layout

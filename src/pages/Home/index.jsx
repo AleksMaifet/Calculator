@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { CalculatorComponent, PageLayout } from '@/containers';
+import { PageLayout } from '@/containers';
+import { CalculatorComponent } from '@/containers/Calculator/function';
 
 export const HomePage = () => {
   return (

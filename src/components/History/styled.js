@@ -8,7 +8,6 @@ export const HistoryContainer = styled.section`
 `;
 
 export const HistoryTitle = styled.h3`
-  padding: ${theme.spaces[3]}px 0;
   font-size: ${theme.textStyle.md}rem;
   text-align: center;
 `;
@@ -17,4 +16,5 @@ export const HistoryList = styled.ul`
   display: flex;
   flex-direction: column;
   text-align: left;
+  padding-left: ${theme.spaces[4]}px;
 `;
