@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+import theme from '@/theme';
+
 export const ErrorContainer = styled.div`
-  margin: 100px auto;
+  margin: ${theme.spaces[15]}px auto;
   text-align: center;
 `;
 
-export const ErrorText = styled.div``;
+export const ErrorText = styled.p`
+  color: ${theme.Colors.error};
+`;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CalculatorContainer, CalculatorPanel } from '../styled';
 
-import { Display, Keypad } from '@/components';
+import { Display, History, Keypad } from '@/components';
 
 export const CalculatorComponent = () => {
   return (
@@ -11,7 +11,7 @@ export const CalculatorComponent = () => {
         <Display />
         <Keypad />
       </CalculatorPanel>
-      History
+      <History />
     </CalculatorContainer>
   );
 };

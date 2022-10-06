@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import theme from '@/theme';
 
 export const ButtonStyled = styled.button`
-  padding: ${theme.spaces[9]}px;
+  margin: ${theme.spaces[2]}px;
+  padding: ${theme.spaces[6]}px;
   border: ${theme.spaces[1]}px solid ${theme.Colors.darkGray};
+  border-radius: ${theme.spaces[4]}px;
   font-size: ${theme.textStyle.lg}rem;
   cursor: pointer;
   transition: ease 0.3s;
@@ -23,6 +25,6 @@ export const ButtonSpanStyled = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${theme.spaces[4]}px;
-  height: ${theme.spaces[4]}px;
+  width: ${theme.spaces[8]}px;
+  height: ${theme.spaces[6]}px;
 `;

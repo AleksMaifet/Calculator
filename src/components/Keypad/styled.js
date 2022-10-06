@@ -4,18 +4,9 @@ import theme from '@/theme';
 
 export const KeypadContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  height: ${theme.size.xs}px;
-  width: ${theme.size.max}%;
+  align-items: center;
+  height: ${theme.spaces[13]}%;
 `;
 
-export const KeypadRow = styled.div`
-  display: flex;
-  margin: 0 auto;
-`;
-
-export const KeypadColumn = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
+export const KeypadRow = styled.div``;

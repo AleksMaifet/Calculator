@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import theme from '@/theme';
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -17,7 +17,7 @@ export const HeaderTitle = styled.h1`
   line-height: ${theme.textStyle.lg.lineHeight}rem;
 `;
 
-export const Navigation = styled.div`
+export const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
 `;

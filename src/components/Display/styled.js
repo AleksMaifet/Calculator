@@ -11,10 +11,10 @@ export const DisplayContainer = styled.div`
   color: ${theme.Colors.darkGray};
 `;
 
-export const DisplayHistory = styled.div`
+export const DisplayHistory = styled.span`
   font-size: ${theme.textStyle.lg}rem;
 `;
 
-export const DisplayCurrent = styled.div`
+export const DisplayCurrent = styled.span`
   font-size: ${theme.textStyle.xl}rem;
 `;
