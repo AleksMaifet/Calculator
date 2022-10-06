@@ -1,19 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Route, Routes } from 'react-router-dom';
 
-const Main = styled.div`
-  color: chartreuse;
-  font-size: 60px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  min-height: 100vh;
-`;
+import { routes } from '@/app/routes';
 
 export const App = () => {
   return (
-    <Main>
-      <h1>Hello world111111111!</h1>
-    </Main>
+    <Routes>
+      {routes.map(({ name, id, child }) => {
+        return <Route key={id} path={name} element={child} />;
+      })}
+    </Routes>
   );
 };

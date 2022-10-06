@@ -1,0 +1,126 @@
+import { css } from 'styled-components';
+
+const fontFamily = 'sans-serif';
+
+/// Colors
+const Colors = {
+  black: '#000000',
+  white: '#ffffff',
+  error: '#c86464',
+  primary: '#c06c84',
+  secondary: '#6c5b7b',
+  secondaryLight: '#6a6b7b',
+  gray: '#707070',
+  darkGray: '#434343',
+  pink: '#f5a6c3',
+  smokyWhite: '#f2f2f2',
+  neutral: '#acaaaa',
+};
+
+/// Shadow
+const boxShadows = ['box-shadow: 0px 4px 24px -8px rgba(0,0,0,0.75)'];
+
+/// Size
+const size = {
+  xs: 550,
+  small: 768,
+  md: 1000,
+  large: 1200,
+};
+
+/// Opacity
+const opacity = {
+  opacity0: 0,
+  opacity50: 0.5,
+  opacity100: 1,
+};
+
+/// TextStyle
+const textStyle = {
+  sm: {
+    fontSize: 0.75,
+    lineHeight: 1,
+  },
+  md: {
+    fontSize: 1.25,
+    lineHeight: 1.75,
+  },
+  lg: {
+    fontSize: 1.875,
+    lineHeight: 2.25,
+  },
+  xl: {
+    fontSize: 2.25,
+    lineHeight: 2.5,
+  },
+};
+
+/// Responsive layout
+
+const above = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
+
+const below = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `;
+  return acc;
+}, {});
+
+/// Theme
+const theme = {
+  above,
+  below,
+  boxShadows,
+  fontFamily,
+};
+
+/// Dark vers.
+const darkTheme = {
+  ...theme,
+  colors: Colors.primary,
+  textColor: {},
+  navColor: Colors.white,
+  backgroundColor: Colors.darkGray,
+};
+
+/// Light vers.
+const lightTheme = {
+  ...theme,
+  colors: {},
+  textColor: Colors.white,
+  navColor: Colors.white,
+  backgroundColor: {},
+};
+
+/// Based
+const basedTheme = {
+  ...theme,
+  headerColor: Colors.secondary,
+  appBackgroundColor: {},
+  textColor: Colors.secondaryLight,
+  buttonColor: {},
+  buttonHoverColor: Colors.error,
+};
+
+export default {
+  above,
+  below,
+  boxShadows,
+  fontFamily,
+  size,
+  opacity,
+  textStyle,
+  darkTheme,
+  lightTheme,
+  basedTheme,
+  Colors,
+};
