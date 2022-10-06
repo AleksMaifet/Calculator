@@ -30,17 +30,7 @@ const size = {
 };
 
 /// Space
-const spaces = [
-  0,
-  5,
-  10,
-  15,
-  20,
-  25,
-  30,
-  35,
-  40,
-];
+const spaces = [0, 5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 100];
 
 /// Opacity
 const opacity = {
@@ -51,22 +41,10 @@ const opacity = {
 
 /// TextStyle
 const textStyle = {
-  sm: {
-    fontSize: 0.75,
-    lineHeight: 1,
-  },
-  md: {
-    fontSize: 1.25,
-    lineHeight: 1.75,
-  },
-  lg: {
-    fontSize: 1.875,
-    lineHeight: 2.25,
-  },
-  xl: {
-    fontSize: 2.25,
-    lineHeight: 2.5,
-  },
+  sm: 1,
+  md: 2,
+  lg: 3,
+  xl: 4,
 };
 
 /// Responsive layout

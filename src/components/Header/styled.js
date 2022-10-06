@@ -7,13 +7,13 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: ${theme.spaces[5]}px 0;
+  height: ${theme.spaces[14]}px;
   background-color: ${theme.Colors.pink};
 `;
 
 export const HeaderTitle = styled.h1`
   color: ${theme.Colors.white};
-  font-size: ${theme.textStyle.xl.fontSize}rem;
+  font-size: ${theme.textStyle.xl}rem;
   line-height: ${theme.textStyle.lg.lineHeight}rem;
 `;
 
@@ -24,14 +24,14 @@ export const Navigation = styled.div`
 
 export const StyledNavLink = styled(NavLink)`
   color: ${theme.Colors.white};
-  font-size: ${theme.textStyle.lg.fontSize}rem;
+  font-size: ${theme.textStyle.md}rem;
 
   :nth-child(n + 2) {
     margin-left: ${theme.spaces[5]}px;
   }
 
   &.active {
-    color:${theme.Colors.secondaryLight} ;
+    color: ${theme.Colors.secondaryLight};
   }
 
   &:hover,

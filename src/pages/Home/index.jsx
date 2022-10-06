@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { PageLayout } from '@/containers/PageLayout';
+import { CalculatorComponent, PageLayout } from '@/containers';
 
 export const HomePage = () => {
   return (
     <div>
       <PageLayout>
-        <h1>HomePage</h1>
+        <CalculatorComponent />
       </PageLayout>
     </div>
   );

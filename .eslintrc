@@ -27,6 +27,7 @@
     "prettier"
   ],
   "rules": {
+    "import/export": 0,
     "no-plusplus": "error",
     "no-magic-numbers": "off",
     "no-use-before-define": "off",
@@ -54,6 +55,11 @@
             "pattern": "./**",
             "group": "internal",
             "position": "after"
+          },
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
           }
         ],
         "newlines-between": "always",
