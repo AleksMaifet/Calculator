@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 const fontFamily = 'sans-serif';
+const fontSizeBase = '10px';
 
 /// Colors
 const Colors = {
@@ -27,6 +28,19 @@ const size = {
   md: 1000,
   large: 1200,
 };
+
+/// Space
+const spaces = [
+  0,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+];
 
 /// Opacity
 const opacity = {
@@ -116,7 +130,9 @@ export default {
   below,
   boxShadows,
   fontFamily,
+  fontSizeBase,
   size,
+  spaces,
   opacity,
   textStyle,
   darkTheme,

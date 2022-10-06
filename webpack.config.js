@@ -36,12 +36,6 @@ module.exports = {
           {
             loader: 'babel-loader',
           },
-          {
-            loader: 'react-svg-loader',
-            options: {
-              jsx: true,
-            },
-          },
         ],
       },
       {
@@ -50,9 +44,14 @@ module.exports = {
       },
       {
         test: /\.(jpg|png)$/,
-        use: {
-          loader: 'url-loader',
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: 'url-loader',
+          },
+        ],
       },
     ],
   },

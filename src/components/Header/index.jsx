@@ -12,7 +12,7 @@ export const Header = () => {
       <Navigation>
         {headerLinks.map(({ name, link }) => {
           return (
-            <StyledNavLink to={link} key={name}>
+            <StyledNavLink to={link} key={name} end>
               {name}
             </StyledNavLink>
           );
