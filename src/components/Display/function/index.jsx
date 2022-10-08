@@ -2,11 +2,11 @@ import React from 'react';
 
 import { DisplayContainer, DisplayCurrent, DisplayHistory } from '../styled';
 
-export const Display = ({ value }) => {
+export const Display = ({ expression }) => {
   return (
     <DisplayContainer>
       <DisplayHistory>History</DisplayHistory>
-      <DisplayCurrent>{value}</DisplayCurrent>
+      <DisplayCurrent>{expression}</DisplayCurrent>
     </DisplayContainer>
   );
 };
