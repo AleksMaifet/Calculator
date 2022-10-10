@@ -1,11 +1,16 @@
 import React from 'react';
 
-import { DisplayContainer, DisplayCurrent, DisplayHistory } from '../styled';
+import { useSelector } from 'react-redux';
 
-export const Display = ({ expression }) => {
+import { DisplayContainer, DisplayCurrent } from '../styled';
+
+import { selectGetExpression } from '@/store';
+
+export const Display = () => {
+  const expression = useSelector(selectGetExpression);
+
   return (
     <DisplayContainer>
-      <DisplayHistory>History</DisplayHistory>
       <DisplayCurrent>{expression}</DisplayCurrent>
     </DisplayContainer>
   );

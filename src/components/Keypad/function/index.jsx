@@ -1,15 +1,18 @@
 import React from 'react';
 
+import { useDispatch } from 'react-redux';
+
 import { KeypadContainer, KeypadRow } from '../styled';
 
 import { Button } from '@/components/Button/function';
 import { buttonValues } from '@/constants';
+import { keypadHandle } from '@/utills';
 
-export const Keypad = React.memo(({ onPressEvent }) => {
-  const setPressEvent = value => {
-    const target = value.target;
-    if (target.tagName === 'DIV') return null;
-    onPressEvent(value.target.textContent);
+export const Keypad = () => {
+  const dispatch = useDispatch();
+
+  const setPressEvent = event => {
+    keypadHandle(event, dispatch);
   };
 
   return (
@@ -23,4 +26,4 @@ export const Keypad = React.memo(({ onPressEvent }) => {
       ))}
     </KeypadContainer>
   );
-});
+};

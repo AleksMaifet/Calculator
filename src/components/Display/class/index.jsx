@@ -1,16 +1,28 @@
 import React from 'react';
 
-import { DisplayContainer, DisplayCurrent, DisplayHistory } from '../styled';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { DisplayContainer, DisplayCurrent } from '../styled';
 
 class Display extends React.Component {
   render() {
+    const { expression } = this.props;
     return (
       <DisplayContainer>
-        <DisplayHistory>History</DisplayHistory>
-        <DisplayCurrent>Current</DisplayCurrent>
+        <DisplayCurrent>{expression}</DisplayCurrent>
       </DisplayContainer>
     );
   }
 }
 
-export default Display;
+const mapStateToProps = state => {
+  return {
+    expression: state.app.expression,
+  };
+};
+export default connect(mapStateToProps)(Display);
+
+Display.propTypes = {
+  expression: PropTypes.string,
+};

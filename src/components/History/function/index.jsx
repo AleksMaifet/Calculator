@@ -1,14 +1,24 @@
 import React from 'react';
 
-import { HistoryContainer, HistoryList, HistoryTitle } from '../styled';
+import { useSelector } from 'react-redux';
+
+import { HistoryContainer, HistoryList, HistoryListItem, HistoryTitle } from '../styled';
+
+import { selectGetHistoryList } from '@/store';
 
 const HISTORY_TITLE = 'History';
 
 export const History = () => {
+  const historyList = useSelector(selectGetHistoryList);
+
   return (
     <HistoryContainer>
       <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
-      <HistoryList>List</HistoryList>
+      <HistoryList>
+        {historyList.map((list, i) => {
+          return <HistoryListItem key={list + i}>{list}</HistoryListItem>;
+        })}
+      </HistoryList>
     </HistoryContainer>
   );
 };

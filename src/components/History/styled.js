@@ -16,5 +16,10 @@ export const HistoryList = styled.ul`
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding-left: ${theme.spaces[4]}px;
+  padding: ${theme.spaces[2]}px 0 0 ${theme.spaces[4]}px;
+`;
+
+export const HistoryListItem = styled.li`
+  font-size: ${theme.textStyle.lg}rem;
+  color: ${theme.Colors.primary};
 `;
