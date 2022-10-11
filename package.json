@@ -1,6 +1,5 @@
 {
   "name": "calc",
-  "homepage": "https://aleksmaifet.github.io/Calculator/",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,9 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --open --config webpack.dev.js",
     "eslint:test": "eslint src --ext .js,.jsx",
-    "eslint:fix": "eslint --fix src --ext .js,.jsx",
-    "predeploy": "npm run dist",
-    "deploy": "gh-pages -d dist"
+    "eslint:fix": "eslint --fix src --ext .js,.jsx"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -52,7 +49,6 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
