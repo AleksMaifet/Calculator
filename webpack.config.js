@@ -1,19 +1,23 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-
   entry: './src/index.js',
-
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
 
   plugins: [
     new CleanWebpackPlugin(),
-    new HTMLWebpackPlugin({
+    new Dotenv({
+      systemvars: true,
+    }),
+    new HtmlWebpackPlugin({
+      title: 'React Project Template',
       template: './public/index.html',
     }),
   ],
