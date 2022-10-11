@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: space-around;
   height: ${theme.spaces[14]}px;
-  background-color: ${theme.Colors.pink};
+  background-color: ${({ theme }) => theme.headerBackgroundColor};
 `;
 
 export const HeaderTitle = styled.h1`

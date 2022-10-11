@@ -13,11 +13,8 @@ const Colors = {
   darkGray: '#434343',
   pink: '#f5a6c3',
   smokyWhite: '#f2f2f2',
-  neutral: '#acaaaa',
+  neutral: '#dde0e7',
 };
-
-/// Shadow
-const boxShadows = ['box-shadow: 0px 4px 24px -8px rgba(0,0,0,0.75)'];
 
 /// Size
 const size = {
@@ -47,22 +44,30 @@ const textStyle = {
 };
 
 /// Dark vers.
-export const darkTheme = {
+const darkTheme = {
   appBackgroundColor: Colors.darkGray,
+  displayTextColor: Colors.white,
+  buttonColor: Colors.white,
+  headerBackgroundColor: Colors.neutral,
 };
 
 /// Light vers.
-export const lightTheme = {
-  appBackgroundColor: Colors.secondaryLight,
+const lightTheme = {
+  appBackgroundColor: Colors.neutral,
+  displayTextColor: Colors.black,
+  buttonColor: Colors.black,
+  headerBackgroundColor: Colors.pink,
 };
 
 /// Based
-export const basedTheme = {
-  appBackgroundColor: Colors.neutral,
+const coloredTheme = {
+  appBackgroundColor: Colors.white,
+  displayTextColor: Colors.black,
+  buttonColor: Colors.black,
+  headerBackgroundColor: Colors.primary,
 };
 
 export default {
-  boxShadows,
   fontFamily,
   fontSizeBase,
   size,
@@ -70,4 +75,7 @@ export default {
   opacity,
   textStyle,
   Colors,
+  darkTheme,
+  lightTheme,
+  coloredTheme,
 };

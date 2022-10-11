@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 import { OptionChangeTheme, OptionSelectTheme } from './styled';
 
-export const Select = memo(({ list, onPressHandle }) => {
+export const Select = memo(({ list, onPressHandle, currentTheme }) => {
+
   return (
-    <OptionSelectTheme onChange={onPressHandle}>
+    <OptionSelectTheme onChange={onPressHandle} value={currentTheme}>
       {list.map(({ id, value, label }) => (
         <OptionChangeTheme key={id} value={value}>
           {label}
@@ -25,4 +26,5 @@ Select.propTypes = {
     }),
   ).isRequired,
   onPressHandle: PropTypes.func.isRequired,
+  currentTheme: PropTypes.string.isRequired,
 };

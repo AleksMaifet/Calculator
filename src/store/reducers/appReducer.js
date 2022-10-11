@@ -7,7 +7,7 @@ import {
   SET_THEME_APP,
 } from '@/constants';
 
-const BASE_THEME_APP = 'based';
+const BASE_THEME_APP = 'colored';
 
 const initialState = {
   expression: '',

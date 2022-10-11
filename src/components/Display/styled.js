@@ -8,11 +8,7 @@ export const DisplayContainer = styled.div`
   align-items: end;
   height: ${theme.spaces[14]}px;
   border-bottom: ${theme.spaces[1]}px solid ${theme.Colors.secondaryLight};
-  color: ${theme.Colors.darkGray};
-`;
-
-export const DisplayHistory = styled.span`
-  font-size: ${theme.textStyle.lg}rem;
+  color: ${({ theme }) => theme.displayTextColor};
 `;
 
 export const DisplayCurrent = styled.span`
