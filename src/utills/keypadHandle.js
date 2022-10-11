@@ -2,13 +2,15 @@ import { Operators } from '@/constants';
 import { addToHistory, addValue, deleteValue, evaluate } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills/calculatorManager';
 
+const MIN_LENGTH_EXPRESSION = 3;
+
 export const keypadHandle = (event, dispatch) => {
   let target = event.target;
   if (target.tagName === 'DIV') return null;
 
   target = event.target.textContent;
 
-  const { Equal, Remove, Reset } = Operators;
+  const { Equal, Remove, Reset, Percent } = Operators;
 
   switch (target) {
     case Remove: {
@@ -21,18 +23,18 @@ export const keypadHandle = (event, dispatch) => {
       dispatch(addValue(calculatorManager.expression));
       break;
     }
-    // case  LeftParenthesis: {
-    //
-    //   break;
-    // }
-    // case RightParenthesis: {
-    //
-    //   break;
-    // }
     case Equal: {
+      if (calculatorManager.expression.length < MIN_LENGTH_EXPRESSION) {
+        break;
+      }
       calculatorManager.returnResult();
       dispatch(evaluate(calculatorManager.expression));
       dispatch(addToHistory(calculatorManager.history));
+      break;
+    }
+    case Percent: {
+      calculatorManager.percentResult();
+      dispatch(evaluate(calculatorManager.expression));
       break;
     }
     default: {

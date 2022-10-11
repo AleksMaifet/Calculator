@@ -35,6 +35,10 @@ class CalculatorManager {
     this.expression = result;
   }
 
+  percentResult() {
+    this.expression = String(this.expression / 100);
+  }
+
   removeCount() {
     this.expression = EMPTY;
   }
@@ -46,6 +50,7 @@ class CalculatorManager {
   clearHistory() {
     this.history = [];
   }
+
 }
 
 export const calculatorManager = new CalculatorManager();
