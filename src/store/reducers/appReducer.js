@@ -1,15 +1,14 @@
 import {
   ADD_TO_HISTORY,
   ADD_VALUE,
+  CLEAR_HISTORY,
   DELETE_VALUE,
   EVALUATE,
-  SET_ERROR,
 } from '@/constants';
 
 const initialState = {
   expression: '',
   historyList: [],
-  errorString: '',
 };
 
 export const appReducer = (state = initialState, { type, payload }) => {
@@ -17,15 +16,11 @@ export const appReducer = (state = initialState, { type, payload }) => {
     case ADD_VALUE:
     case DELETE_VALUE:
     case EVALUATE:
+    case CLEAR_HISTORY:
     case ADD_TO_HISTORY:
       return {
         ...state,
         ...payload,
-      };
-    case SET_ERROR:
-      return {
-        ...state,
-        errorString: payload.value,
       };
     default:
       return state;

@@ -15,7 +15,7 @@ export const createArrayValues = expression => {
       element = Minus;
       return;
     }
-    if (item === Dot && element.length) {
+    if (item === Dot) {
       element += Dot;
       return;
     }

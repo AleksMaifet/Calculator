@@ -17,7 +17,7 @@ class CalculatorManager {
 
   setCount(currentValue) {
     const lastChar = this.expression.at(-1);
-    const regExpression = /[-+./*%]/g;
+    const regExpression = /[-+/*%]/g;
     const isItOperatorChange =
       lastChar && lastChar.match(regExpression) && currentValue.match(regExpression);
 
@@ -41,6 +41,10 @@ class CalculatorManager {
 
   removeLastElement() {
     this.expression = this.expression.slice(0, -1);
+  }
+
+  clearHistory() {
+    this.history = [];
   }
 }
 

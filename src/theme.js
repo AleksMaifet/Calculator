@@ -1,5 +1,3 @@
-import { css } from 'styled-components';
-
 const fontFamily = 'sans-serif';
 const fontSizeBase = '10px';
 
@@ -48,30 +46,8 @@ const textStyle = {
   xll: 5,
 };
 
-/// Responsive layout
-
-const above = Object.keys(size).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `;
-  return acc;
-}, {});
-
-const below = Object.keys(size).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (max-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `;
-  return acc;
-}, {});
-
 /// Theme
 const theme = {
-  above,
-  below,
   boxShadows,
   fontFamily,
 };
@@ -105,8 +81,6 @@ const basedTheme = {
 };
 
 export default {
-  above,
-  below,
   boxShadows,
   fontFamily,
   fontSizeBase,
