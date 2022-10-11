@@ -2,13 +2,16 @@ name: React CI
 on:
   push:
     branches:
-      - master
+    - master
 jobs:
   build:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      args: eslint:test
+      - uses: actions/checkout@v1
+      - uses: kingscooty/actions-yarn-cy@master
+        with:
+          args: eslint:test
       - uses: kingscooty/actions-yarn-cy@master
         with:
           args: build
