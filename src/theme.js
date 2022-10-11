@@ -46,38 +46,19 @@ const textStyle = {
   xll: 5,
 };
 
-/// Theme
-const theme = {
-  boxShadows,
-  fontFamily,
-};
-
 /// Dark vers.
-const darkTheme = {
-  ...theme,
-  colors: Colors.primary,
-  textColor: {},
-  navColor: Colors.white,
-  backgroundColor: Colors.darkGray,
+export const darkTheme = {
+  appBackgroundColor: Colors.darkGray,
 };
 
 /// Light vers.
-const lightTheme = {
-  ...theme,
-  colors: {},
-  textColor: Colors.white,
-  navColor: Colors.white,
-  backgroundColor: {},
+export const lightTheme = {
+  appBackgroundColor: Colors.secondaryLight,
 };
 
 /// Based
-const basedTheme = {
-  ...theme,
-  headerColor: Colors.secondary,
-  appBackgroundColor: {},
-  textColor: Colors.secondaryLight,
-  buttonColor: {},
-  buttonHoverColor: Colors.error,
+export const basedTheme = {
+  appBackgroundColor: Colors.neutral,
 };
 
 export default {
@@ -88,8 +69,5 @@ export default {
   spaces,
   opacity,
   textStyle,
-  darkTheme,
-  lightTheme,
-  basedTheme,
   Colors,
 };

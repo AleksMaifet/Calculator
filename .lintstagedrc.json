@@ -1,4 +1,7 @@
 {
-  "*.(js|jsx)": ["yarn eslint:fix", "git add"]
+  "*.(js|jsx)": [
+    "yarn eslint:fix",
+    "git add"
+  ]
 }
 

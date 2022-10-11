@@ -1,16 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { HistoryContainer, HistoryList, HistoryListItem, HistoryTitle } from '../styled';
 
-import { selectGetHistoryList } from '@/store';
-
 const HISTORY_TITLE = 'History';
 
-export const History = () => {
-  const historyList = useSelector(selectGetHistoryList);
-
+export const History = memo(({ historyList }) => {
   return (
     <HistoryContainer>
       <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
@@ -21,4 +17,8 @@ export const History = () => {
       </HistoryList>
     </HistoryContainer>
   );
+});
+
+History.propTypes = {
+  historyList: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

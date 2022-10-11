@@ -37,5 +37,5 @@ const mapDispatchToProps = dispatch => {
 export default connect(null, mapDispatchToProps)(Keypad);
 
 Keypad.propTypes = {
-  setPressEvent: PropTypes.func,
+  setPressEvent: PropTypes.func.isRequired,
 };

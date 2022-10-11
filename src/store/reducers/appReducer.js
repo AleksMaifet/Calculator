@@ -4,11 +4,15 @@ import {
   CLEAR_HISTORY,
   DELETE_VALUE,
   EVALUATE,
+  SET_THEME_APP,
 } from '@/constants';
+
+const BASE_THEME_APP = 'Colored Theme';
 
 const initialState = {
   expression: '',
   historyList: [],
+  themeApp: BASE_THEME_APP,
 };
 
 export const appReducer = (state = initialState, { type, payload }) => {
@@ -17,6 +21,7 @@ export const appReducer = (state = initialState, { type, payload }) => {
     case DELETE_VALUE:
     case EVALUATE:
     case CLEAR_HISTORY:
+    case SET_THEME_APP:
     case ADD_TO_HISTORY:
       return {
         ...state,

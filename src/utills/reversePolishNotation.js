@@ -5,6 +5,7 @@ export const reversePolishNotation = expression => {
 
   const { LeftParenthesis, RightParenthesis } = Operators;
   const LOW_PRIORITY = 0;
+  const LAST_ELEMENT = -1;
 
   let queue = [];
   let stack = [];
@@ -25,7 +26,9 @@ export const reversePolishNotation = expression => {
 
     const currentOperatorPriority = priority[token] || LOW_PRIORITY;
 
-    let topOperatorStackPriority = isStackFilled ? priority[stack.at(-1)] : LOW_PRIORITY;
+    let topOperatorStackPriority = isStackFilled
+      ? priority[stack.at(LAST_ELEMENT)]
+      : LOW_PRIORITY;
 
     switch (true) {
       case isOperator && token === RightParenthesis: {
@@ -51,7 +54,7 @@ export const reversePolishNotation = expression => {
         while (currentOperatorPriority <= topOperatorStackPriority) {
           queue = [...queue, stack.pop()];
           topOperatorStackPriority = isStackFilled
-            ? priority[stack.at(-1)]
+            ? priority[stack.at(LAST_ELEMENT)]
             : LOW_PRIORITY;
         }
         stack = [...stack, token];

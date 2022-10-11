@@ -31,5 +31,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(History);
 
 History.propTypes = {
-  historyList: PropTypes.arrayOf(PropTypes.string),
+  historyList: PropTypes.arrayOf(PropTypes.string).isRequired,
 };

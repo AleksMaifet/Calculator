@@ -45,7 +45,7 @@ export default createGlobalStyle`
     background: transparent;
     font-size: 100%;
   }
-  
+
   table {
     border-spacing: 0;
     border-collapse: collapse;
@@ -96,6 +96,8 @@ export default createGlobalStyle`
     font-family: ${theme.fontFamily};
     line-height: 1.4;
     font-weight: 500;
+    width: 100%;
+    height: 100%;
   }
 
   body {

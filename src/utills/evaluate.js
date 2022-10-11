@@ -3,6 +3,8 @@ import { Operators } from '@/constants';
 export const evaluate = expression => {
   const { Plus, Minus, Multiplication, Divisor, Percent } = Operators;
 
+  const ERROR_TEXT = 'Error';
+
   let stack = [];
 
   while (expression.length) {
@@ -32,6 +34,8 @@ export const evaluate = expression => {
       case Percent:
         stack = [...stack, secondNumber % firstNumber];
         break;
+      default:
+        throw new Error(ERROR_TEXT);
     }
   }
 

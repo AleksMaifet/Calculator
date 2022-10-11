@@ -8,6 +8,12 @@ export const SettingsContainer = styled.main`
   flex-direction: column;
 `;
 
+export const SettingsContext = styled.section`
+  display: flex;
+  justify-content: space-around;
+  width: ${theme.size.xs}px;
+`;
+
 export const SettingsButton = styled.button`
   font-size: ${theme.textStyle.md}rem;
   cursor: pointer;

@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 
 import { Header } from '@/components';
 
+import { PageLayoutContainer } from './styled';
+
 export const PageLayout = ({ children }) => {
   return (
-    <React.Fragment>
+    <PageLayoutContainer>
       <Header />
       {children}
-    </React.Fragment>
+    </PageLayoutContainer>
   );
 };
 

@@ -24,5 +24,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(Display);
 
 Display.propTypes = {
-  expression: PropTypes.string,
+  expression: PropTypes.string.isRequired,
 };

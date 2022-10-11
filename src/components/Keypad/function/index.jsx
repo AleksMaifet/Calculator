@@ -1,22 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { KeypadContainer, KeypadRow } from '../styled';
 
 import { Button } from '@/components/Button/function';
-import { buttonValues } from '@/constants';
-import { keypadHandle } from '@/utills';
 
-export const Keypad = () => {
-  const dispatch = useDispatch();
-
-  const setPressEvent = event => {
-    keypadHandle(event, dispatch);
-  };
-
+export const Keypad = memo(({ buttonValues, onPressHandle }) => {
   return (
-    <KeypadContainer onClick={e => setPressEvent(e)}>
+    <KeypadContainer onClick={e => onPressHandle(e)}>
       {buttonValues.map((rows, index) => (
         <KeypadRow key={index}>
           {rows.map(({ id, value }) => (
@@ -26,4 +18,16 @@ export const Keypad = () => {
       ))}
     </KeypadContainer>
   );
+});
+
+Keypad.propTypes = {
+  buttonValues: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired,
+      }),
+    ),
+  ).isRequired,
+  onPressHandle: PropTypes.func.isRequired,
 };

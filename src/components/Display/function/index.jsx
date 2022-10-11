@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { DisplayContainer, DisplayCurrent } from '../styled';
 
-import { selectGetExpression } from '@/store';
-
-export const Display = () => {
-  const expression = useSelector(selectGetExpression);
-
+export const Display = memo(({ display }) => {
   return (
     <DisplayContainer>
-      <DisplayCurrent>{expression}</DisplayCurrent>
+      <DisplayCurrent>{display}</DisplayCurrent>
     </DisplayContainer>
   );
+});
+
+Display.propTypes = {
+  display: PropTypes.string.isRequired,
 };
