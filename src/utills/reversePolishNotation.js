@@ -3,8 +3,6 @@ import { Operators } from '@/constants';
 export const reversePolishNotation = expression => {
   if (!Array.isArray(expression)) return null;
 
-  console.log(expression)
-
   const { LeftParenthesis, RightParenthesis } = Operators;
   const LOW_PRIORITY = 0;
   const LAST_ELEMENT = -1;
@@ -46,9 +44,9 @@ export const reversePolishNotation = expression => {
         break;
 
       case isOperator &&
-      (!isStackFilled ||
-        token === LeftParenthesis ||
-        currentOperatorPriority > topOperatorStackPriority):
+        (!isStackFilled ||
+          token === LeftParenthesis ||
+          currentOperatorPriority > topOperatorStackPriority):
         stack = [...stack, token];
         break;
 

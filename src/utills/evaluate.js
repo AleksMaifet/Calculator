@@ -39,7 +39,7 @@ export const evaluate = expression => {
     }
   }
 
-  return String(new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(
-    stack.pop(),
-  ));
+  return String(
+    new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(stack.pop()),
+  );
 };
