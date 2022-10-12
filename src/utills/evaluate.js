@@ -38,5 +38,6 @@ export const evaluate = expression => {
         throw new Error(ERROR_TEXT);
     }
   }
-  return String(stack.pop());
+
+  return String(stack.pop().toLocaleString());
 };
