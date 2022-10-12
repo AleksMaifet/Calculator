@@ -10,7 +10,9 @@
     "eslint:test": "eslint src --ext .js,.jsx",
     "eslint:fix": "eslint --fix src --ext .js,.jsx",
     "cypress:open": "cypress open",
-    "cypress:test": "start-server-and-test start http://localhost:3030 cypress:open"
+    "cypress:run": "cypress run",
+    "cypress:test:run": "start-server-and-test start http://localhost:3030 cypress:run",
+    "cypress:test:open": "start-server-and-test start http://localhost:3030 cypress:open"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
