@@ -8,7 +8,8 @@
   ],
   "env": {
     "browser": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
@@ -24,7 +25,8 @@
     "react-hooks",
     "import",
     "unused-imports",
-    "prettier"
+    "prettier",
+    "cypress"
   ],
   "rules": {
     "import/export": 0,

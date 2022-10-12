@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,9 +17,12 @@ export const CalculatorComponent = () => {
   const expression = useSelector(selectGetExpression);
   const history = useSelector(selectGetHistoryList);
 
-  const setPressEvent = event => {
-    keypadHandle(event, dispatch);
-  };
+  const setPressEvent = useCallback(
+    event => {
+      keypadHandle(event, dispatch);
+    },
+    [dispatch],
+  );
 
   return (
     <CalculatorContainer>
