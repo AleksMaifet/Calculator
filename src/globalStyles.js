@@ -97,7 +97,6 @@ export default createGlobalStyle`
     line-height: 1.4;
     font-weight: 500;
     width: 100%;
-    height: 100%;
   }
 
   body {

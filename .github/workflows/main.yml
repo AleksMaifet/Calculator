@@ -23,4 +23,4 @@ jobs:
           args: build
       - uses: kingscooty/actions-yarn-cy@master
         with:
-          args: cypress:test
+          args: cypress:test:run
