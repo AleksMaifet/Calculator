@@ -1,14 +1,18 @@
 import { Operators } from '@/constants';
 
 export const createArrayValues = expression => {
-  if (typeof expression !== 'string') return;
 
-  const { Minus, Dot } = Operators;
-
+  const MIN_LENGTH_EXPRESSION = 3;
   const EMPTY = '';
 
-  let result = [];
+  const { Minus, Dot, RightParenthesis } = Operators;
+
+  if (typeof expression !== 'string') return;
+  if (expression.length < MIN_LENGTH_EXPRESSION) return;
+  if (expression.at(-1) === RightParenthesis && expression.at(-2) === RightParenthesis) return;
+
   let element = EMPTY;
+  let result = [];
 
   expression.split(EMPTY).forEach(item => {
     if (item === Minus && !element.length) {
