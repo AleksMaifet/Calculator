@@ -50,7 +50,6 @@ class CalculatorManager {
   clearHistory() {
     this.history = [];
   }
-
 }
 
 export const calculatorManager = new CalculatorManager();

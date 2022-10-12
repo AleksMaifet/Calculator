@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { OptionChangeTheme, OptionSelectTheme } from './styled';
 
 export const Select = memo(({ list, onPressHandle, currentTheme }) => {
-
   return (
     <OptionSelectTheme onChange={onPressHandle} value={currentTheme}>
       {list.map(({ id, value, label }) => (

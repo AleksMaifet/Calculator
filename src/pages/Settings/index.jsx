@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Select } from '@/components/Select';
 import { themesConfig } from '@/constants';
 import { PageLayout } from '@/containers/PageLayout';
+import { selectGetAppTheme } from '@/store';
 import { clearHistory, setTheme } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills';
 
@@ -14,7 +15,6 @@ import {
   SettingsContext,
   SettingsTitle,
 } from './styled';
-import { selectGetAppTheme } from '@/store';
 
 const SETTINGS_TITLE = 'Settings';
 const BUTTON_TITLE = 'Clear all history';
@@ -42,7 +42,11 @@ export const SettingsPage = () => {
       <SettingsContainer>
         <SettingsTitle>{SETTINGS_TITLE}</SettingsTitle>
         <SettingsContext>
-          <Select list={themesConfig} onPressHandle={changeThemeAppHandle} currentTheme={currentTheme} />
+          <Select
+            list={themesConfig}
+            onPressHandle={changeThemeAppHandle}
+            currentTheme={currentTheme}
+          />
           <SettingsButton onClick={deleteHistoryHandle}>{BUTTON_TITLE}</SettingsButton>
         </SettingsContext>
       </SettingsContainer>
