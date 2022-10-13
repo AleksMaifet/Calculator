@@ -1,11 +1,12 @@
 import { Operators } from '@/constants';
 
-export const reversePolishNotation = expression => {
-  if (!Array.isArray(expression) || !expression) return;
+const { LeftParenthesis, RightParenthesis } = Operators;
+const LOW_PRIORITY = 0;
+const LAST_ELEMENT = -1;
+const EMPTY_VALUE = '';
 
-  const { LeftParenthesis, RightParenthesis } = Operators;
-  const LOW_PRIORITY = 0;
-  const LAST_ELEMENT = -1;
+export const reversePolishNotation = expression => {
+  if (!Array.isArray(expression) || !expression.length) return EMPTY_VALUE;
 
   let queue = [];
   let stack = [];

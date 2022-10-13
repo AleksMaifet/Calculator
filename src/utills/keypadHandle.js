@@ -2,13 +2,13 @@ import { Operators } from '@/constants';
 import { addToHistory, addValue, deleteValue, evaluate } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills/calculatorManager';
 
+const { Equal, Remove, Reset, Percent } = Operators;
+
 export const keypadHandle = (event, dispatch) => {
   let target = event.target;
   if (target.tagName === 'DIV') return null;
 
   target = event.target.textContent;
-
-  const { Equal, Remove, Reset, Percent } = Operators;
 
   switch (target) {
     case Remove: {
@@ -28,7 +28,7 @@ export const keypadHandle = (event, dispatch) => {
       break;
     }
     case Percent: {
-      calculatorManager.percentResult();
+      calculatorManager.percentResult(target);
       dispatch(evaluate(calculatorManager.expression));
       break;
     }

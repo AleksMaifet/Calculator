@@ -67,7 +67,10 @@ describe('Arithmetic Operation', () => {
       .get('section > div:last button').contains('1').click()
       .get('section > div:last button').contains('=').click();
     cy
-      .get('section div:first').should('have.text', '-3');
+      .get('section div:first').should('have.text', '-3')
+      .get('section > div:last button').contains('CE').click();
+    cy
+      .get('section div:first').should('have.text', '');
   });
 
 });

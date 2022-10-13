@@ -1,19 +1,18 @@
 import { Operators } from '@/constants';
 
+const { Minus, Dot, LeftParenthesis, RightParenthesis } = Operators;
+
+const EMPTY = '';
+const LAST_ELEMENT = -1;
+const START_VALUE = 0;
+
 export const createArrayValues = expression => {
-  const MIN_LENGTH_EXPRESSION = 3;
-  const EMPTY = '';
-  const LAST_ELEMENT = -1;
-  const EQUAL_VALUE = 0;
-
-  const { Minus, Dot, LeftParenthesis, RightParenthesis } = Operators;
-
   if (typeof expression !== 'string') return;
-  if (expression.length < MIN_LENGTH_EXPRESSION) return;
+  if (expression[START_VALUE] === RightParenthesis) return;
 
   let element = EMPTY;
   let result = [];
-  let countParentheses = EQUAL_VALUE;
+  let countParentheses = START_VALUE;
 
   expression.split(EMPTY).forEach(item => {
     if (item === LeftParenthesis) {
@@ -50,8 +49,9 @@ export const createArrayValues = expression => {
 
   result = [...result, element].filter(item => item);
 
-  if (countParentheses !== EQUAL_VALUE) {
+  if (countParentheses !== START_VALUE) {
     return;
   }
+
   return result;
 };

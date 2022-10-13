@@ -1,6 +1,7 @@
 import { createArrayValues, evaluate, reversePolishNotation } from '@/utills';
 
-const EMPTY = '';
+const START_EXPRESSION = '';
+const LAST_ELEMENT = -1;
 
 class CalculatorManager {
   static singleton;
@@ -11,7 +12,7 @@ class CalculatorManager {
     }
     CalculatorManager.singleton = this;
 
-    this.expression = EMPTY;
+    this.expression = START_EXPRESSION;
     this.history = [];
   }
 
@@ -31,20 +32,25 @@ class CalculatorManager {
   returnResult() {
     const notation = reversePolishNotation(createArrayValues(this.expression));
     const result = evaluate(notation);
+    if (!result) {
+      return;
+    }
     this.history = [`${this.expression} = ${result}`, ...this.history];
     this.expression = result;
   }
 
-  percentResult() {
-    this.expression = String(this.expression / 100);
+  percentResult(operator) {
+    this.expression = this.expression + operator;
+    const notation = reversePolishNotation(createArrayValues(this.expression));
+    this.expression = evaluate(notation);
   }
 
   removeCount() {
-    this.expression = EMPTY;
+    this.expression = START_EXPRESSION;
   }
 
   removeLastElement() {
-    this.expression = this.expression.slice(0, -1);
+    this.expression = this.expression.slice(0, LAST_ELEMENT);
   }
 
   clearHistory() {
