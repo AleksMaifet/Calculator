@@ -14,7 +14,11 @@ export const createArrayValues = expression => {
   let result = [];
   let countParentheses = START_VALUE;
 
-  expression.split(EMPTY).forEach(item => {
+  for (const item of expression) {
+    if (countParentheses < START_VALUE) {
+      break;
+    }
+
     if (item === LeftParenthesis) {
       countParentheses += 1;
     }
@@ -29,29 +33,29 @@ export const createArrayValues = expression => {
       result.at(LAST_ELEMENT) !== RightParenthesis
     ) {
       element = Minus;
-      return;
+      continue;
     }
 
     if (item === Dot) {
       element += Dot;
-      return;
+      continue;
     }
 
     if (isNaN(item)) {
       result = [...result, element];
       element = EMPTY;
       result = [...result, item];
-      return;
+      continue;
     }
 
     element += item;
-  });
-
-  result = [...result, element].filter(item => item);
+  }
 
   if (countParentheses !== START_VALUE) {
     return;
   }
+
+  result = [...result, element].filter(item => item);
 
   return result;
 };
