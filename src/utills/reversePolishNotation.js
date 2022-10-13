@@ -1,7 +1,7 @@
 import { Operators } from '@/constants';
 
 export const reversePolishNotation = expression => {
-  if (!Array.isArray(expression)) return null;
+  if (!Array.isArray(expression) || !expression) return;
 
   const { LeftParenthesis, RightParenthesis } = Operators;
   const LOW_PRIORITY = 0;

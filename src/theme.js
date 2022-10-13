@@ -5,7 +5,7 @@ const fontSizeBase = '10px';
 const Colors = {
   black: '#000000',
   white: '#ffffff',
-  error: '#c86464',
+  error: '#FF0000',
   primary: '#c06c84',
   secondary: '#6c5b7b',
   secondaryLight: '#6a6b7b',

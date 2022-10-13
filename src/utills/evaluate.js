@@ -1,9 +1,11 @@
 import { Operators } from '@/constants';
 
 export const evaluate = expression => {
+
   const { Plus, Minus, Multiplication, Divisor, Percent } = Operators;
 
   const ERROR_TEXT = 'Error';
+  const MAX_LENGTH_RESULT = 3;
 
   let stack = [];
 
@@ -40,6 +42,8 @@ export const evaluate = expression => {
   }
 
   return String(
-    new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(stack.pop()),
+    new Intl.NumberFormat('en-IN', {
+      maximumSignificantDigits: MAX_LENGTH_RESULT,
+    }).format(stack.pop()),
   );
 };

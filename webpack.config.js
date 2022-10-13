@@ -2,7 +2,6 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 
@@ -10,7 +9,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    assetModuleFilename: 'assets/[hash][ext]',
     publicPath: '/',
   },
 
@@ -23,7 +21,6 @@ module.exports = {
       title: 'React Project Template',
       template: './public/index.html',
     }),
-    new UglifyJsPlugin(),
   ],
 
   module: {
@@ -72,6 +69,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      // 'react-dom$': 'react-dom/profiling',
     },
+
   },
 };

@@ -14,8 +14,8 @@ ReactDOM.render(
     <BrowserRouter>
       <ErrorBoundary>
         <App />
-        <GlobalStyles />
       </ErrorBoundary>
+      <GlobalStyles />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),

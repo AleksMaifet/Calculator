@@ -9,5 +9,5 @@ export const ErrorContainer = styled.div`
 
 export const ErrorText = styled.p`
   color: ${theme.Colors.error};
-  font-size: ${theme.textStyle.xll};
+  font-size: ${theme.textStyle.xll}rem;
 `;
