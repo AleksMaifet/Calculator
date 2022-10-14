@@ -1,11 +1,9 @@
 {
   "semi": true,
-  "jsxBracketSameLine": true,
+  "tabWidth": 2,
   "printWidth": 90,
   "singleQuote": true,
-  "trailingComma": "all",
-  "parser": "babel",
   "bracketSpacing": true,
-  "tabWidth": 2,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "trailingComma": "all"
 }

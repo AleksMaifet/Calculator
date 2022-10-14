@@ -24,6 +24,9 @@
     "cypress"
   ],
   "rules": {
+    "no-alert": "error",
+    "no-debugger": "warn",
+    "no-unused-vars": "off",
     "no-shadow": "off",
     "arrow-parens": [
       "error",
@@ -117,6 +120,16 @@
           "multiline": true,
           "minProperties": 1
         }
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/destructuring-assignment": "error",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".jsx"
+        ]
       }
     ]
   },

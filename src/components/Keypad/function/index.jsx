@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 
 import { Button } from '@/components/Button/function';
 import { KeypadContainer, KeypadRow } from '@/components/Keypad/styled';
+import { buttonValues } from '@/constants';
 
-export const Keypad = memo(({ buttonValues, onPressHandle }) => (
+export const Keypad = memo(({ onPressHandle }) => (
   <KeypadContainer onClick={e => onPressHandle(e)}>
     {buttonValues.map((rows, index) => (
       <KeypadRow key={`${index + rows}`}>
@@ -18,13 +19,5 @@ export const Keypad = memo(({ buttonValues, onPressHandle }) => (
 ));
 
 Keypad.propTypes = {
-  buttonValues: PropTypes.arrayOf(
-    PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-      }),
-    ),
-  ).isRequired,
   onPressHandle: PropTypes.func.isRequired,
 };
