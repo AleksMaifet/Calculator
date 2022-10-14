@@ -2,9 +2,9 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { PageLayout } from '@/components/PageLayout';
 import { Select } from '@/components/Select';
 import { themesConfig } from '@/constants';
-import { PageLayout } from '@/containers/PageLayout';
 import { selectGetAppTheme } from '@/store';
 import { clearHistory, setTheme } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills';

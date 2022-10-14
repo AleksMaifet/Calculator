@@ -5,7 +5,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 
-  entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.js')],
+  entry: ['@babel/polyfill', path.resolve(__dirname, './src/index.jsx')],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -69,7 +69,6 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
-      // 'react-dom$': 'react-dom/profiling',
     },
 
   },

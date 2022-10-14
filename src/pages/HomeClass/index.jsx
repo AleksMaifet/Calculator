@@ -1,12 +1,10 @@
 import React from 'react';
 
-import CalculatorComponent from '@/containers/Calculator/class';
-import { PageLayout } from '@/containers/PageLayout';
+import CalculatorComponent from '@/components/Calculator/class';
+import { PageLayout } from '@/components/PageLayout';
 
-export const HomeClassPage = () => {
-  return (
-    <PageLayout>
-      <CalculatorComponent />
-    </PageLayout>
-  );
-};
+export const HomeClassPage = () => (
+  <PageLayout>
+    <CalculatorComponent />
+  </PageLayout>
+);

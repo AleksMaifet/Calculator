@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-import { RoutContainer } from '@/containers/RoutContainer';
+import { RoutContainer } from '@/components/RoutContainer';
 import { selectGetAppTheme } from '@/store';
 import theme from '@/theme';
 

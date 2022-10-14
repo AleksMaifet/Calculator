@@ -13,7 +13,7 @@ export const evaluate = expression => {
   while (expression.length) {
     const token = expression.shift();
 
-    if (!isNaN(token)) {
+    if (!Number.isNaN(Number(token))) {
       stack = [...stack, parseFloat(token)];
       continue;
     }
@@ -44,7 +44,7 @@ export const evaluate = expression => {
 
   const result = stack.pop();
 
-  if (isNaN(result)) {
+  if (Number.isNaN(Number(result))) {
     return EMPTY_RESULT;
   }
 

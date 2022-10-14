@@ -22,7 +22,7 @@ export const reversePolishNotation = expression => {
   while (expression.length) {
     const token = expression.shift();
 
-    const isOperator = isNaN(token);
+    const isOperator = Number.isNaN(Number(token));
     const isStackFilled = stack.length;
 
     const currentOperatorPriority = priority[token] || LOW_PRIORITY;

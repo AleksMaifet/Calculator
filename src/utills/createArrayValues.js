@@ -41,7 +41,7 @@ export const createArrayValues = expression => {
       continue;
     }
 
-    if (isNaN(item)) {
+    if (Number.isNaN(Number(item))) {
       result = [...result, element];
       element = EMPTY;
       result = [...result, item];

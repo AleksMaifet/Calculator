@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { ButtonSpanStyled, ButtonStyled } from '../styled';
+import { ButtonSpanStyled, ButtonStyled } from '@/components/Button/styled';
 
-class Button extends React.Component {
+class Button extends PureComponent {
   render() {
+    const { value } = this.props;
     return (
       <ButtonStyled>
-        <ButtonSpanStyled>{this.props.value}</ButtonSpanStyled>
+        <ButtonSpanStyled>{value}</ButtonSpanStyled>
       </ButtonStyled>
     );
   }
 }
 
-export default React.memo(Button);
+export default Button;
 
 Button.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
 };

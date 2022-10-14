@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import { App } from '@/app';
-import { ErrorBoundary } from '@/components';
+import { App } from '@/components/App';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import GlobalStyles from '@/globalStyles';
 import { store } from '@/store';
 

@@ -2,23 +2,20 @@ import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { KeypadContainer, KeypadRow } from '../styled';
-
 import { Button } from '@/components/Button/function';
+import { KeypadContainer, KeypadRow } from '@/components/Keypad/styled';
 
-export const Keypad = memo(({ buttonValues, onPressHandle }) => {
-  return (
-    <KeypadContainer onClick={e => onPressHandle(e)}>
-      {buttonValues.map((rows, index) => (
-        <KeypadRow key={index}>
-          {rows.map(({ id, value }) => (
-            <Button key={id} value={value} />
-          ))}
-        </KeypadRow>
-      ))}
-    </KeypadContainer>
-  );
-});
+export const Keypad = memo(({ buttonValues, onPressHandle }) => (
+  <KeypadContainer onClick={e => onPressHandle(e)}>
+    {buttonValues.map((rows, index) => (
+      <KeypadRow key={`${index + rows}`}>
+        {rows.map(({ id, value }) => (
+          <Button key={id} value={value} />
+        ))}
+      </KeypadRow>
+    ))}
+  </KeypadContainer>
+));
 
 Keypad.propTypes = {
   buttonValues: PropTypes.arrayOf(

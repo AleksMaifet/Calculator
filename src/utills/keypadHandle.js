@@ -5,7 +5,7 @@ import { calculatorManager } from '@/utills/calculatorManager';
 const { Equal, Remove, Reset, Percent } = Operators;
 
 export const keypadHandle = (event, dispatch) => {
-  let target = event.target;
+  let { target } = event;
   if (target.tagName === 'DIV') return null;
 
   target = event.target.textContent;

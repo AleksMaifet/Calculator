@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { HistoryContainer, HistoryList, HistoryListItem, HistoryTitle } from '../styled';
+import {
+  HistoryContainer,
+  HistoryList,
+  HistoryListItem,
+  HistoryTitle,
+} from '@/components/History/styled';
 
 const HISTORY_TITLE = 'History';
 
-class History extends React.Component {
+class History extends PureComponent {
   render() {
     const { historyList } = this.props;
     return (
       <HistoryContainer>
         <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
         <HistoryList>
-          {historyList.map((list, i) => {
-            return <HistoryListItem key={list + i}>{list}</HistoryListItem>;
-          })}
+          {historyList.map((list, i) => (
+            <HistoryListItem key={`${i + list}`}>{list}</HistoryListItem>
+          ))}
         </HistoryList>
       </HistoryContainer>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    historyList: state.app.historyList,
-  };
-};
+const mapStateToProps = state => ({
+  historyList: state.app.historyList,
+});
 export default connect(mapStateToProps)(History);
 
 History.propTypes = {

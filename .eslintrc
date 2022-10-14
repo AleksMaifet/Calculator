@@ -1,10 +1,8 @@
 {
   "extends": [
-    "standard",
-    "standard-react",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "airbnb",
+    "prettier",
+    "plugin:react/recommended"
   ],
   "env": {
     "browser": true,
@@ -23,15 +21,30 @@
     "react",
     "prettier",
     "react-hooks",
-    "import",
-    "unused-imports",
-    "prettier",
     "cypress"
   ],
   "rules": {
+    "no-shadow": "off",
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "import/extensions": "off",
+    "no-continue": "off",
     "import/export": 0,
     "no-plusplus": "error",
+    "default-param-last": "off",
+    "consistent-return": "off",
+    "prettier/prettier": "error",
     "no-magic-numbers": "off",
+    "no-constructor-return": "off",
+    "no-cond-assign": "off",
     "no-use-before-define": "off",
     "no-multiple-empty-lines": [
       "error",
@@ -44,9 +57,32 @@
     "react/no-unescaped-entities": "off",
     "import/no-anonymous-default-export": "off",
     "react/display-name": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "import/prefer-default-export": "off",
     "import/order": [
       "error",
       {
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "parent",
+          "sibling",
+          "index"
+        ],
         "pathGroups": [
           {
             "pattern": "@/**",
@@ -63,72 +99,29 @@
             "group": "external",
             "position": "before"
           }
-        ],
-        "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
+        ]
       }
     ],
-    "react/function-component-definition": [
-      2,
+    "import/no-extraneous-dependencies": [
+      "error",
       {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": {
+          "multiline": true,
+          "minProperties": 1
+        }
       }
     ]
   },
   "ignorePatterns": [
     "node_modules/"
-  ],
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [
-          [
-            "@/public",
-            "./public"
-          ],
-          [
-            "@/components",
-            "./components"
-          ],
-          [
-            "@/assets",
-            "./assets"
-          ],
-          [
-            "@/routes",
-            "./routes"
-          ],
-          [
-            "@/state",
-            "./state"
-          ],
-          [
-            "@/utils",
-            "./utils"
-          ],
-          [
-            "@/pages",
-            "./pages"
-          ],
-          [
-            "@/theme",
-            "./theme"
-          ]
-        ],
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".json"
-        ]
-      }
-    }
-  }
+  ]
 }
 

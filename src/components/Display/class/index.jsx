@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { DisplayContainer, DisplayCurrent } from '../styled';
+import { DisplayContainer, DisplayCurrent } from '@/components/Display/styled';
 
-class Display extends React.Component {
+class Display extends PureComponent {
   render() {
     const { expression } = this.props;
     return (
@@ -16,11 +16,9 @@ class Display extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    expression: state.app.expression,
-  };
-};
+const mapStateToProps = state => ({
+  expression: state.app.expression,
+});
 export default connect(mapStateToProps)(Display);
 
 Display.propTypes = {

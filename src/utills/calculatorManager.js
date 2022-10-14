@@ -4,13 +4,11 @@ const START_EXPRESSION = '';
 const LAST_ELEMENT = -1;
 
 class CalculatorManager {
-  static singleton;
-
   constructor() {
-    if (CalculatorManager.singleton) {
-      return CalculatorManager.singleton;
+    if (CalculatorManager.instance) {
+      return CalculatorManager.instance;
     }
-    CalculatorManager.singleton = this;
+    CalculatorManager.instance = this;
 
     this.expression = START_EXPRESSION;
     this.history = [];
@@ -40,7 +38,7 @@ class CalculatorManager {
   }
 
   percentResult(operator) {
-    this.expression = this.expression + operator;
+    this.expression += operator;
     const notation = reversePolishNotation(createArrayValues(this.expression));
     this.expression = evaluate(notation);
   }
