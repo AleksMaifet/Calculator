@@ -52,6 +52,7 @@ class CalculatorManager {
   }
 
   clearHistory() {
+    this.removeCount();
     this.history = [];
   }
 }

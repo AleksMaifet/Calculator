@@ -5,16 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PageLayout } from '@/components/PageLayout';
 import { Select } from '@/components/Select';
 import { themesConfig } from '@/constants';
-import { selectGetAppTheme } from '@/store';
-import { clearHistory, setTheme } from '@/store/actionCreators';
-import { calculatorManager } from '@/utills';
-
 import {
   SettingsButton,
   SettingsContainer,
   SettingsContext,
   SettingsTitle,
-} from './styled';
+} from '@/pages/Settings/styled';
+import { selectGetAppTheme } from '@/store';
+import { clearHistory, deleteValue, setTheme } from '@/store/actionCreators';
+import { calculatorManager } from '@/utills';
 
 const SETTINGS_TITLE = 'Settings';
 const BUTTON_TITLE = 'Clear all history';
@@ -26,6 +25,7 @@ export const SettingsPage = () => {
 
   const deleteHistoryHandle = () => {
     calculatorManager.clearHistory();
+    dispatch(deleteValue(calculatorManager.expression));
     dispatch(clearHistory(calculatorManager.history));
   };
 

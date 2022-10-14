@@ -49,7 +49,7 @@ export const evaluate = expression => {
   }
 
   return String(
-    new Intl.NumberFormat('en-IN', {
+    new Intl.NumberFormat('eng-RU', {
       maximumSignificantDigits: MAX_LENGTH_RESULT,
     }).format(result),
   );
