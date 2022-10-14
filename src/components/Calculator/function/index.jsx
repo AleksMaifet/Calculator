@@ -2,10 +2,10 @@ import React, { useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { CalculatorContainer, CalculatorPanel } from '@/components/Calculator/styled';
 import { Display } from '@/components/Display/function';
 import { History } from '@/components/History/function';
 import { Keypad } from '@/components/Keypad/function';
-import { CalculatorContainer, CalculatorPanel } from '@/containers/Calculator/styled';
 import { selectGetExpression, selectGetHistoryList } from '@/store';
 import { keypadHandle } from '@/utills';
 
