@@ -48,9 +48,5 @@ export const evaluate = expression => {
     return EMPTY_RESULT;
   }
 
-  return String(
-    new Intl.NumberFormat('eng-RU', {
-      maximumSignificantDigits: MAX_LENGTH_RESULT,
-    }).format(result),
-  );
+  return result.toLocaleString();
 };

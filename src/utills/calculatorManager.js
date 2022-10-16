@@ -1,4 +1,9 @@
-import { createArrayValues, evaluate, reversePolishNotation } from '@/utills';
+import {
+  createArrayValues,
+  evaluate,
+  expressionHelper,
+  reversePolishNotation,
+} from '@/utills';
 
 const START_EXPRESSION = '';
 const LAST_ELEMENT = -1;
@@ -16,15 +21,18 @@ class CalculatorManager {
 
   setCount(currentValue) {
     const lastChar = this.expression.at(-1);
-    const regExpression = /[-+/*%]/g;
+    const regExpression = /[-+/*]/g;
     const isItOperatorChange =
       lastChar && lastChar.match(regExpression) && currentValue.match(regExpression);
 
     if (isItOperatorChange) {
       if (currentValue === lastChar) return;
-      this.expression = this.expression.slice(0, -1);
+      this.expression = this.expression.slice(0, LAST_ELEMENT);
     }
+
     this.expression += currentValue;
+
+    this.expression = expressionHelper(this.expression, currentValue);
   }
 
   returnResult() {
