@@ -47,12 +47,12 @@ describe('Arithmetic Operation', () => {
       .get('section div:first').should('have.text', '6')
       .get('section > div:last button').contains('%').click();
     cy
-      .get('section div:first').should('have.text', '0.06');
+      .get('section div:first').should('have.text', '0,06');
   });
 
   it('it remove figure test', () => {
     cy
-      .get('section div:first').should('have.text', '0.06')
+      .get('section div:first').should('have.text', '0,06')
       .get('section > div:last button').contains('CE').click();
     cy
       .get('section div:first').should('have.text', '');

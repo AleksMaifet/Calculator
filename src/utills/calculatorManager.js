@@ -57,6 +57,7 @@ class CalculatorManager {
 
   removeLastElement() {
     this.expression = this.expression.slice(0, LAST_ELEMENT);
+    expressionHelper(this.expression);
   }
 
   clearHistory() {

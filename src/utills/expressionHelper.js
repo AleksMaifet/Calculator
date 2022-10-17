@@ -1,36 +1,54 @@
-export const expressionChecker = () => {
-  let parenthesisAmount = 0;
+import { Operators } from '@/constants';
 
-  const removeLastElement = expression => expression.slice(0, -1);
+const { RightParenthesis } = Operators;
+
+const START_VALUE = 0;
+
+const removeLastElement = expression => expression.slice(0, -1);
+
+const parenthesisValidation = () => {
+  let parenthesisAmount = START_VALUE;
 
   return (expression, currentValue) => {
-    if (/\d+\.\d+\.|\d+\.\.|\.\d+\.|\.\./.test(expression)) {
-      return removeLastElement(expression);
+    const matches = expression.match(/\(/g);
+
+    if (matches && currentValue !== RightParenthesis) {
+      parenthesisAmount = matches.length;
+    } else if (!matches) {
+      parenthesisAmount = START_VALUE;
     }
 
-    if (/\(\(/.test(expression)) {
-      return removeLastElement(expression);
-    }
-
-    if (/^00/.test(expression)) {
-      return removeLastElement(expression);
-    }
-
-    if (currentValue === ')') {
+    if (currentValue === RightParenthesis) {
       parenthesisAmount -= 1;
     }
 
-    if (currentValue === '(') {
-      parenthesisAmount += 1;
+    if (parenthesisAmount < START_VALUE) {
+      parenthesisAmount = START_VALUE;
+      return parenthesisAmount === START_VALUE;
     }
 
-    if (parenthesisAmount < 0) {
-      parenthesisAmount = 0;
-      return removeLastElement(expression);
-    }
-
-    return expression;
+    return parenthesisAmount < START_VALUE;
   };
 };
 
-export const expressionHelper = expressionChecker();
+const isParenthesisValid = parenthesisValidation();
+
+export const expressionHelper = (expression, currentValue) => {
+  if (/\d+\.\d+\.|\d+\.\.|\.\d+\.|\.\./.test(expression)) {
+    return removeLastElement(expression);
+  }
+
+  if (/\(\(|\)\(/.test(expression)) {
+    return removeLastElement(expression);
+  }
+
+  if (/^00/.test(expression)) {
+    return removeLastElement(expression);
+  }
+
+  if (isParenthesisValid(expression, currentValue)) {
+    return removeLastElement(expression);
+  }
+
+  return expression;
+};
