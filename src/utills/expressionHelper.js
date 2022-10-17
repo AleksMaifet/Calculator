@@ -38,7 +38,7 @@ export const expressionHelper = (expression, currentValue) => {
     return removeLastElement(expression);
   }
 
-  if (/\(\(|\)\(/.test(expression)) {
+  if (/\(\(|\)\(|\([*/+)]|\(\D\)|\d\(/.test(expression)) {
     return removeLastElement(expression);
   }
 

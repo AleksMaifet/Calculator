@@ -17,7 +17,7 @@ export const createArrayValues = expression => {
       !element.length &&
       result.at(LAST_ELEMENT) !== RightParenthesis
     ) {
-      element = Minus;
+      element = item;
       continue;
     }
 
