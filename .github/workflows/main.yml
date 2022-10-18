@@ -16,10 +16,3 @@ jobs:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx'
           annotations: true
-  cypress-run:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
