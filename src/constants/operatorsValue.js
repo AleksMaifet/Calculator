@@ -10,4 +10,5 @@ export const Operators = {
   Dot: '.',
   Remove: 'CE',
   Reset: 'C',
+  ChangeSymbol: '+/-',
 };

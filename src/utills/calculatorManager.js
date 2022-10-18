@@ -2,7 +2,9 @@ import {
   createArrayValues,
   evaluate,
   expressionHelper,
+  isEvaluateValidation,
   reversePolishNotation,
+  ToggleSymbolHelper,
 } from '@/utills';
 
 const START_EXPRESSION = '';
@@ -20,6 +22,10 @@ class CalculatorManager {
   }
 
   setCount(currentValue) {
+    if (/[\\+*-]/.test(currentValue) && !this.expression.length) {
+      return;
+    }
+
     const lastChar = this.expression.at(-1);
     const regExpression = /[-+/*]/g;
     const isItOperatorChange =
@@ -36,7 +42,9 @@ class CalculatorManager {
   }
 
   returnResult() {
-    const notation = reversePolishNotation(createArrayValues(this.expression));
+    const notation = reversePolishNotation(
+      createArrayValues(isEvaluateValidation(this.expression)),
+    );
     const result = evaluate(notation);
     if (!result) {
       return;
@@ -45,10 +53,8 @@ class CalculatorManager {
     this.expression = result;
   }
 
-  percentResult(operator) {
-    this.expression += operator;
-    const notation = reversePolishNotation(createArrayValues(this.expression));
-    this.expression = evaluate(notation);
+  toggleSymbol() {
+    this.expression = ToggleSymbolHelper(this.expression);
   }
 
   removeCount() {

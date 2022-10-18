@@ -45,7 +45,11 @@ describe('Arithmetic Operation', () => {
   it('it remainder test', () => {
     cy
       .get('section div:first').should('have.text', '6')
-      .get('section > div:last button').contains('%').click();
+      .get('section > div:last button').contains('/').click()
+      .get('section > div:last button').contains('1').click()
+      .get('section > div:last button').contains('0').click()
+      .get('section > div:last button').contains('0').click()
+      .get('section > div:last button').contains('=').click();
     cy
       .get('section div:first').should('have.text', '0,06');
   });
@@ -61,10 +65,11 @@ describe('Arithmetic Operation', () => {
   it('it addition two negative numbers test', () => {
     cy
       .get('section div:first').should('have.text', '')
-      .get('section > div:last button').contains('-').click()
+      .get('section > div:last button').contains('+/-').click()
       .get('section > div:last button').contains('2').click()
       .get('section > div:last button').contains('-').click()
       .get('section > div:last button').contains('1').click()
+      .get('section > div:last button').contains(')').click()
       .get('section > div:last button').contains('=').click();
     cy
       .get('section div:first').should('have.text', '-3')
@@ -121,7 +126,7 @@ describe('Keypad module', () => {
 
   it('it check keypad', () => {
     cy.get('section > div:last button')
-      .should('have.length', 21)
+      .should('have.length', 22)
       .within(() => {
         cy.root().eq(0).should('have.text', 'C');
         cy.root().eq(1).should('have.text', '7');
@@ -144,6 +149,7 @@ describe('Keypad module', () => {
         cy.root().eq(18).should('have.text', ')');
         cy.root().eq(19).should('have.text', 'CE');
         cy.root().eq(20).should('have.text', '%');
+        cy.root().eq(21).should('have.text', '+/-');
       });
   });
 });

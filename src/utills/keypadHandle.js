@@ -2,7 +2,7 @@ import { Operators } from '@/constants';
 import { addToHistory, addValue, deleteValue, evaluate } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills/calculatorManager';
 
-const { Equal, Remove, Reset, Percent } = Operators;
+const { Equal, Remove, Reset, ChangeSymbol } = Operators;
 
 export const keypadHandle = (event, dispatch) => {
   let { target } = event;
@@ -27,9 +27,9 @@ export const keypadHandle = (event, dispatch) => {
       dispatch(addToHistory(calculatorManager.history));
       break;
     }
-    case Percent: {
-      calculatorManager.percentResult(target);
-      dispatch(evaluate(calculatorManager.expression));
+    case ChangeSymbol: {
+      calculatorManager.toggleSymbol();
+      dispatch(addValue(calculatorManager.expression));
       break;
     }
     default: {

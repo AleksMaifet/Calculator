@@ -4,9 +4,20 @@ const { Minus, Dot, RightParenthesis } = Operators;
 
 const EMPTY = '';
 const LAST_ELEMENT = -1;
+const MIN_AMOUNT_NUMS = 2;
+
+export const isEvaluateValidation = result => {
+  const matches = result.match(/[0-9.,]+/g);
+  if (matches && matches.length < MIN_AMOUNT_NUMS) {
+    return;
+  }
+  return result;
+};
 
 export const createArrayValues = expression => {
-  if (typeof expression !== 'string') return;
+  if (typeof expression !== 'string') {
+    return;
+  }
 
   let element = EMPTY;
   let result = [];

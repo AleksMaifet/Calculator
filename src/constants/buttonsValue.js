@@ -92,5 +92,9 @@ export const buttonValues = [
       id: '21',
       value: '%',
     },
+    {
+      id: '22',
+      value: '+/-',
+    },
   ],
 ];

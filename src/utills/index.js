@@ -4,3 +4,4 @@ export * from './createArrayValues';
 export * from './evaluate';
 export * from './keypadHandle';
 export * from './expressionHelper';
+export * from './toggleSymbolHelper';
