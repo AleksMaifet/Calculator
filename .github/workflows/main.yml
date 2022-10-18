@@ -1,26 +1,32 @@
 name: React CI
 on:
-  pull_request:
+  push:
     branches:
       - master
 jobs:
-  build:
-    name: Tests
+  eslint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 18.7.0 ]
     steps:
-      - uses: actions/checkout@v1
-      - uses: kingscooty/actions-yarn-cy@master
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          args: install
-      - uses: kingscooty/actions-yarn-cy@master
+          node-version: [ 18.7.0 ]
+      - run: yarn install
+      - uses: sibiraj-s/action-eslint@v2
         with:
-          args: eslint:test
-      - uses: kingscooty/actions-yarn-cy@master
+          eslint-args: '--ignore-path=.gitignore --quiet'
+          extensions: 'js,jsx'
+          annotations: true
+
+  cypress-run:
+    runs-on: ubuntu-20.04
+    name: E2E on Chrome
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v4
         with:
-          args: build
-      - uses: kingscooty/actions-yarn-cy@master
-        with:
-          args: cypress:test:run
+         browser: chrome
+
+
+
+
