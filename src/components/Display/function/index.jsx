@@ -2,14 +2,24 @@ import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { DisplayContainer, DisplayCurrent } from '@/components/Display/styled';
+import {
+  DisplayContainer,
+  DisplayCurrent,
+  DisplayHistory,
+} from '@/components/Display/styled';
 
-export const Display = memo(({ display }) => (
+export const Display = memo(({ display, preDisplay }) => (
   <DisplayContainer>
-    <DisplayCurrent>{display}</DisplayCurrent>
+    <DisplayHistory>{display}</DisplayHistory>
+    <DisplayCurrent>{preDisplay}</DisplayCurrent>
   </DisplayContainer>
 ));
 
+Display.defaultProps = {
+  preDisplay: '',
+};
+
 Display.propTypes = {
   display: PropTypes.string.isRequired,
+  preDisplay: PropTypes.string,
 };

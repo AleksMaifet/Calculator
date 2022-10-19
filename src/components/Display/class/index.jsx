@@ -3,13 +3,18 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { DisplayContainer, DisplayCurrent } from '@/components/Display/styled';
+import {
+  DisplayContainer,
+  DisplayCurrent,
+  DisplayHistory,
+} from '@/components/Display/styled';
 
 class Display extends PureComponent {
   render() {
     const { expression } = this.props;
     return (
       <DisplayContainer>
+        <DisplayHistory>{expression}</DisplayHistory>
         <DisplayCurrent>{expression}</DisplayCurrent>
       </DisplayContainer>
     );

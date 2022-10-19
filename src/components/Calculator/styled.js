@@ -5,7 +5,7 @@ import theme from '@/theme';
 export const CalculatorContainer = styled.main`
   display: flex;
   justify-content: center;
-  padding-top: ${theme.spaces[4]}px;
+  padding-top: ${theme.spaces[2]}px;
 `;
 
 export const CalculatorPanel = styled.section`

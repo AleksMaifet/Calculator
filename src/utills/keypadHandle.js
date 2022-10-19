@@ -13,28 +13,29 @@ export const keypadHandle = (event, dispatch) => {
   switch (target) {
     case Remove: {
       calculatorManager.removeCount();
-      dispatch(deleteValue(calculatorManager.expression));
+      dispatch(deleteValue(calculatorManager.expression, calculatorManager.prevValue));
       break;
     }
     case Reset: {
       calculatorManager.removeLastElement();
-      dispatch(addValue(calculatorManager.expression));
+      dispatch(addValue(calculatorManager.expression, calculatorManager.prevValue));
       break;
     }
     case Equal: {
       calculatorManager.returnResult();
-      dispatch(evaluate(calculatorManager.expression));
+      // console.log(calculatorManager.expression)
+      dispatch(evaluate(calculatorManager.prevValue));
       dispatch(addToHistory(calculatorManager.history));
       break;
     }
     case ChangeSymbol: {
       calculatorManager.toggleSymbol();
-      dispatch(addValue(calculatorManager.expression));
+      dispatch(addValue(calculatorManager.expression, calculatorManager.prevValue));
       break;
     }
     default: {
       calculatorManager.setCount(target);
-      dispatch(addValue(calculatorManager.expression));
+      dispatch(addValue(calculatorManager.expression, calculatorManager.prevValue));
     }
   }
 };

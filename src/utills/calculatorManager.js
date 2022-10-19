@@ -2,7 +2,10 @@ import {
   createArrayValues,
   evaluate,
   expressionHelper,
+  getPrevValue,
   isEvaluateValidation,
+  isParenthesisValid,
+  removeLastElement,
   reversePolishNotation,
   ToggleSymbolHelper,
 } from '@/utills';
@@ -18,6 +21,7 @@ class CalculatorManager {
     CalculatorManager.instance = this;
 
     this.expression = START_EXPRESSION;
+    this.prevValue = START_EXPRESSION;
     this.history = [];
   }
 
@@ -38,7 +42,9 @@ class CalculatorManager {
 
     this.expression += currentValue;
 
-    this.expression = expressionHelper(this.expression, currentValue);
+    this.prevValue = getPrevValue(this.expression);
+
+    this.expression = expressionHelper(isParenthesisValid(this.expression, currentValue));
   }
 
   returnResult() {
@@ -51,6 +57,7 @@ class CalculatorManager {
     }
     this.history = [`${this.expression} = ${result}`, ...this.history];
     this.expression = result;
+    this.prevValue = result;
   }
 
   toggleSymbol() {
@@ -59,11 +66,13 @@ class CalculatorManager {
 
   removeCount() {
     this.expression = START_EXPRESSION;
+    this.prevValue = START_EXPRESSION;
   }
 
   removeLastElement() {
-    this.expression = this.expression.slice(0, LAST_ELEMENT);
-    expressionHelper(this.expression);
+    this.expression = removeLastElement(this.expression);
+    this.prevValue = removeLastElement(this.prevValue);
+    isParenthesisValid(this.expression);
   }
 
   clearHistory() {

@@ -4,7 +4,13 @@ const { RightParenthesis } = Operators;
 
 const START_VALUE = 0;
 
-const removeLastElement = expression => expression.slice(0, -1);
+export const removeLastElement = expression => expression.slice(0, -1);
+
+export const getPrevValue = expression =>
+  expression
+    .split(/[^0-9.,]/)
+    .filter(el => el)
+    .at(-1);
 
 const parenthesisValidation = () => {
   let parenthesisAmount = START_VALUE;
@@ -24,16 +30,20 @@ const parenthesisValidation = () => {
 
     if (parenthesisAmount < START_VALUE) {
       parenthesisAmount = START_VALUE;
-      return parenthesisAmount === START_VALUE;
+      return removeLastElement(expression);
     }
 
-    return parenthesisAmount < START_VALUE;
+    if (parenthesisAmount < START_VALUE) {
+      return removeLastElement(expression);
+    }
+
+    return expression;
   };
 };
 
-const isParenthesisValid = parenthesisValidation();
+export const isParenthesisValid = parenthesisValidation();
 
-export const expressionHelper = (expression, currentValue) => {
+export const expressionHelper = expression => {
   if (/\d+\.\d+\.|\d+\.\.|\.\d+\.|\.\./.test(expression)) {
     return removeLastElement(expression);
   }
@@ -43,10 +53,6 @@ export const expressionHelper = (expression, currentValue) => {
   }
 
   if (/^00/.test(expression)) {
-    return removeLastElement(expression);
-  }
-
-  if (isParenthesisValid(expression, currentValue)) {
     return removeLastElement(expression);
   }
 

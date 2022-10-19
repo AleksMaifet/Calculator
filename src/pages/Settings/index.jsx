@@ -12,7 +12,7 @@ import {
   SettingsTitle,
 } from '@/pages/Settings/styled';
 import { selectGetAppTheme } from '@/store';
-import { clearHistory, deleteValue, setTheme } from '@/store/actionCreators';
+import { clearHistoryValue, deleteValue, setTheme } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills';
 
 const SETTINGS_TITLE = 'Settings';
@@ -25,8 +25,8 @@ export const SettingsPage = () => {
 
   const deleteHistoryHandle = () => {
     calculatorManager.clearHistory();
-    dispatch(deleteValue(calculatorManager.expression));
-    dispatch(clearHistory(calculatorManager.history));
+    dispatch(deleteValue(calculatorManager.expression, calculatorManager.prevValue));
+    dispatch(clearHistoryValue(calculatorManager.history));
   };
 
   const changeThemeAppHandle = useCallback(
