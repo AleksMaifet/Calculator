@@ -11,17 +11,19 @@ import {
 
 const HISTORY_TITLE = 'History';
 
-export const History = memo(({ historyList }) => (
-  <HistoryContainer>
+export const History = memo(({ historyList, isShowHistory }) => (
+  <HistoryContainer isOpen={isShowHistory}>
     <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
     <HistoryList>
-      {historyList.map((list, i) => (
-        <HistoryListItem key={`${list + i}`}>{list}</HistoryListItem>
-      ))}
+      {historyList &&
+        historyList.map((list, i) => (
+          <HistoryListItem key={`${list + i}`}>{list}</HistoryListItem>
+        ))}
     </HistoryList>
   </HistoryContainer>
 ));
 
 History.propTypes = {
   historyList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isShowHistory: PropTypes.bool.isRequired,
 };

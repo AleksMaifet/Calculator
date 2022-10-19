@@ -4,7 +4,10 @@ import theme from '@/theme';
 
 export const HistoryContainer = styled.section`
   width: ${theme.spaces[4]}%;
-  border-left: ${theme.spaces[1]}px solid ${theme.Colors.secondaryLight};
+  opacity: ${({ isOpen }) =>
+    isOpen ? theme.opacity.opacity100 : theme.opacity.opacity0};
+  transition: 0.3s;
+  cursor: pointer;
 `;
 
 export const HistoryTitle = styled.h3`

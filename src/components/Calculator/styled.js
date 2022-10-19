@@ -11,4 +11,5 @@ export const CalculatorContainer = styled.main`
 export const CalculatorPanel = styled.section`
   width: ${theme.spaces[9]}%;
   padding: 0 ${theme.spaces[4]}px;
+  border-right: ${theme.spaces[1]}px solid ${theme.Colors.secondaryLight};
 `;

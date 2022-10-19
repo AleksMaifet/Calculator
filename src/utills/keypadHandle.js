@@ -6,7 +6,7 @@ const { Equal, Remove, Reset, ChangeSymbol } = Operators;
 
 export const keypadHandle = (event, dispatch) => {
   let { target } = event;
-  if (target.tagName === 'DIV') return null;
+  if (target.tagName === 'DIV') return;
 
   target = event.target.textContent;
 
@@ -23,7 +23,6 @@ export const keypadHandle = (event, dispatch) => {
     }
     case Equal: {
       calculatorManager.returnResult();
-      // console.log(calculatorManager.expression)
       dispatch(evaluate(calculatorManager.prevValue));
       dispatch(addToHistory(calculatorManager.history));
       break;

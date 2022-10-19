@@ -11,8 +11,8 @@ const persistedState = loadState();
 
 export const store = createStore(reducers, persistedState);
 
-store.subscribe(() => {
-  saveState(store.getState());
-});
+// store.subscribe(() => {
+//   saveState(store.getState());
+// });
 
 window.store = store;

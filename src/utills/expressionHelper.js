@@ -1,9 +1,3 @@
-import { Operators } from '@/constants';
-
-const { RightParenthesis } = Operators;
-
-const START_VALUE = 0;
-
 export const removeLastElement = expression => expression.slice(0, -1);
 
 export const getPrevValue = expression =>
@@ -12,36 +6,18 @@ export const getPrevValue = expression =>
     .filter(el => el)
     .at(-1);
 
-const parenthesisValidation = () => {
-  let parenthesisAmount = START_VALUE;
+export const parenthesisValidation = expression => {
+  const leftParenthesis = expression.match(/\(/g);
+  const rightParenthesis = expression.match(/\)/g);
 
-  return (expression, currentValue) => {
-    const matches = expression.match(/\(/g);
-
-    if (matches && currentValue !== RightParenthesis) {
-      parenthesisAmount = matches.length;
-    } else if (!matches) {
-      parenthesisAmount = START_VALUE;
-    }
-
-    if (currentValue === RightParenthesis) {
-      parenthesisAmount -= 1;
-    }
-
-    if (parenthesisAmount < START_VALUE) {
-      parenthesisAmount = START_VALUE;
+  if (leftParenthesis && rightParenthesis) {
+    if (leftParenthesis.length < rightParenthesis.length) {
       return removeLastElement(expression);
     }
+  }
 
-    if (parenthesisAmount < START_VALUE) {
-      return removeLastElement(expression);
-    }
-
-    return expression;
-  };
+  return expression;
 };
-
-export const isParenthesisValid = parenthesisValidation();
 
 export const expressionHelper = expression => {
   if (/\d+\.\d+\.|\d+\.\.|\.\d+\.|\.\./.test(expression)) {

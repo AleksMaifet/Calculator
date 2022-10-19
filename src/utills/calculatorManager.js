@@ -4,7 +4,7 @@ import {
   expressionHelper,
   getPrevValue,
   isEvaluateValidation,
-  isParenthesisValid,
+  parenthesisValidation,
   removeLastElement,
   reversePolishNotation,
   ToggleSymbolHelper,
@@ -26,7 +26,7 @@ class CalculatorManager {
   }
 
   setCount(currentValue) {
-    if (/[\\+*-]/.test(currentValue) && !this.expression.length) {
+    if (/[\\+*)-]/.test(currentValue) && !this.expression.length) {
       return;
     }
 
@@ -42,9 +42,9 @@ class CalculatorManager {
 
     this.expression += currentValue;
 
-    this.prevValue = getPrevValue(this.expression);
+    this.prevValue = expressionHelper(getPrevValue(this.expression));
 
-    this.expression = expressionHelper(isParenthesisValid(this.expression, currentValue));
+    this.expression = parenthesisValidation(expressionHelper(this.expression));
   }
 
   returnResult() {
@@ -72,7 +72,7 @@ class CalculatorManager {
   removeLastElement() {
     this.expression = removeLastElement(this.expression);
     this.prevValue = removeLastElement(this.prevValue);
-    isParenthesisValid(this.expression);
+    parenthesisValidation(this.expression);
   }
 
   clearHistory() {

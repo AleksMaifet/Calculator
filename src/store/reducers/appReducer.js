@@ -13,6 +13,7 @@ const initialState = {
   expression: '',
   historyList: [],
   prevNumber: '',
+  isShowHistoryList: true,
   themeApp: BASE_THEME_APP,
 };
 
