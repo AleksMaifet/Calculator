@@ -3,10 +3,12 @@ import { Operators } from '@/constants';
 const { Plus, Minus, Multiplication, Divisor, Percent } = Operators;
 
 const ERROR_TEXT = 'Error';
+const PERCENT_VALUE = 100;
 const EMPTY_RESULT = '';
 
 export const evaluate = expression => {
   let stack = [];
+  let divisorToggle = true;
 
   while (expression.length) {
     const token = expression.shift();
@@ -30,10 +32,25 @@ export const evaluate = expression => {
         stack = [...stack, secondNumber * firstNumber];
         break;
       case Divisor:
+        divisorToggle = false;
         stack = [...stack, secondNumber / firstNumber];
         break;
       case Percent:
-        stack = [...stack, secondNumber % firstNumber];
+        if (secondNumber) {
+          if (divisorToggle) {
+            stack = [
+              ...stack,
+              secondNumber,
+              (firstNumber * secondNumber) / PERCENT_VALUE,
+            ];
+            break;
+          }
+        }
+        if (!divisorToggle) {
+          stack = [...stack, firstNumber * PERCENT_VALUE];
+          break;
+        }
+        stack = [...stack, firstNumber / PERCENT_VALUE];
         break;
       default:
         throw new Error(ERROR_TEXT);

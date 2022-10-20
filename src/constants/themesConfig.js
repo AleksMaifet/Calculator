@@ -1,3 +1,5 @@
+import theme from '@/theme';
+
 export const themesConfig = [
   {
     id: '1',
@@ -15,3 +17,11 @@ export const themesConfig = [
     label: 'Dark Theme',
   },
 ];
+
+const { coloredTheme, lightTheme, darkTheme } = theme;
+
+export const availableThemes = {
+  colored: coloredTheme,
+  light: lightTheme,
+  dark: darkTheme,
+};

@@ -8,8 +8,7 @@ import {
   HistoryListItem,
   HistoryTitle,
 } from '@/components/History/styled';
-
-const HISTORY_TITLE = 'History';
+import { HISTORY_TITLE } from '@/constants';
 
 export const History = memo(({ historyList, isShowHistory, onPressHandle }) => (
   <HistoryContainer>

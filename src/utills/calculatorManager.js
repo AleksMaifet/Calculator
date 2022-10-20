@@ -4,6 +4,7 @@ import {
   expressionHelper,
   getPrevValue,
   isEvaluateValidation,
+  IsExpressionValidPercent,
   parenthesisValidation,
   removeLastElement,
   reversePolishNotation,
@@ -62,6 +63,17 @@ class CalculatorManager {
 
   toggleSymbol() {
     this.expression = ToggleSymbolHelper(this.expression);
+  }
+
+  percentResult(operator) {
+    const notation = reversePolishNotation([
+      ...createArrayValues(IsExpressionValidPercent(this.expression)),
+      operator,
+    ]);
+    const result = evaluate(notation);
+    this.history = [`${this.expression}${operator} = ${result}`, ...this.history];
+    this.expression = result;
+    this.prevValue = result;
   }
 
   removeCount() {

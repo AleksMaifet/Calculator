@@ -9,9 +9,8 @@ import {
   HistoryListItem,
   HistoryTitle,
 } from '@/components/History/styled';
+import { HISTORY_TITLE } from '@/constants';
 import { keypadHandle } from '@/utills';
-
-const HISTORY_TITLE = 'History';
 
 class History extends PureComponent {
   render() {

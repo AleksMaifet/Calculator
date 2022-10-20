@@ -7,8 +7,7 @@ import {
   Navigation,
   StyledNavLink,
 } from '@/components/Header/styled';
-
-const HEADER_TITLE = 'Calculator';
+import { HEADER_TITLE } from '@/constants';
 
 export const Header = () => (
   <HeaderWrapper>

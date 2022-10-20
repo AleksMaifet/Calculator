@@ -8,7 +8,7 @@ import {
 } from '@/store/actionCreators';
 import { calculatorManager } from '@/utills/calculatorManager';
 
-const { Equal, Remove, Reset, ChangeSymbol } = Operators;
+const { Equal, Remove, Reset, ChangeSymbol, Percent } = Operators;
 const HISTORY_TITLE = 'History';
 
 export const keypadHandle = (event, dispatch) => {
@@ -37,6 +37,12 @@ export const keypadHandle = (event, dispatch) => {
     case ChangeSymbol: {
       calculatorManager.toggleSymbol();
       dispatch(addValue(calculatorManager.expression, calculatorManager.prevValue));
+      break;
+    }
+    case Percent: {
+      calculatorManager.percentResult(target);
+      dispatch(evaluate(calculatorManager.expression));
+      dispatch(addToHistory(calculatorManager.history));
       break;
     }
     case HISTORY_TITLE: {
