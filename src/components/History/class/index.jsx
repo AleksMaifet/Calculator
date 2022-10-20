@@ -14,9 +14,9 @@ const HISTORY_TITLE = 'History';
 
 class History extends PureComponent {
   render() {
-    const { historyList } = this.props;
+    const { historyList, isShowHistory } = this.props;
     return (
-      <HistoryContainer>
+      <HistoryContainer isOpen={isShowHistory}>
         <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
         <HistoryList>
           {historyList.map((list, i) => (
@@ -30,9 +30,11 @@ class History extends PureComponent {
 
 const mapStateToProps = state => ({
   historyList: state.app.historyList,
+  isShowHistory: state.app.isShowHistoryList,
 });
 export default connect(mapStateToProps)(History);
 
 History.propTypes = {
   historyList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isShowHistory: PropTypes.bool.isRequired,
 };

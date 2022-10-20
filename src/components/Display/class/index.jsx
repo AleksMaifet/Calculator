@@ -11,11 +11,11 @@ import {
 
 class Display extends PureComponent {
   render() {
-    const { expression } = this.props;
+    const { expression, prevNumber } = this.props;
     return (
       <DisplayContainer>
         <DisplayHistory>{expression}</DisplayHistory>
-        <DisplayCurrent>{expression}</DisplayCurrent>
+        <DisplayCurrent>{prevNumber}</DisplayCurrent>
       </DisplayContainer>
     );
   }
@@ -23,9 +23,11 @@ class Display extends PureComponent {
 
 const mapStateToProps = state => ({
   expression: state.app.expression,
+  prevNumber: state.app.prevNumber,
 });
 export default connect(mapStateToProps)(Display);
 
 Display.propTypes = {
   expression: PropTypes.string.isRequired,
+  prevNumber: PropTypes.string.isRequired,
 };

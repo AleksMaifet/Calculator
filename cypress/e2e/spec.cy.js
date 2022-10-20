@@ -39,32 +39,36 @@ describe('Arithmetic Operation', () => {
       .get('section > div:last button').contains('2').click()
       .get('section > div:last button').contains('=').click();
     cy
-      .get('section div:first').should('have.text', '6');
+      .get('section div:first span:first').should('have.text', '2+2*2')
+      .get('section div:first span:last').should('have.text', '6');
   });
 
   it('it remainder test', () => {
     cy
-      .get('section div:first').should('have.text', '6')
+      .get('section div:first span:last').should('have.text', '6')
       .get('section > div:last button').contains('/').click()
       .get('section > div:last button').contains('1').click()
       .get('section > div:last button').contains('0').click()
       .get('section > div:last button').contains('0').click()
       .get('section > div:last button').contains('=').click();
     cy
-      .get('section div:first').should('have.text', '0,06');
+      .get('section div:first span:first').should('have.text', '6/100')
+      .get('section div:first span:last').should('have.text', '0,06');
   });
 
   it('it remove figure test', () => {
     cy
-      .get('section div:first').should('have.text', '0,06')
+      .get('section div:first span:last').should('have.text', '0,06')
       .get('section > div:last button').contains('CE').click();
     cy
-      .get('section div:first').should('have.text', '');
+      .get('section div:first span:first').should('have.text', '')
+      .get('section div:first span:last').should('have.text', '');
   });
 
   it('it addition two negative numbers test', () => {
     cy
-      .get('section div:first').should('have.text', '')
+      .get('section div:first span:first').should('have.text', '')
+      .get('section div:first span:last').should('have.text', '')
       .get('section > div:last button').contains('+/-').click()
       .get('section > div:last button').contains('2').click()
       .get('section > div:last button').contains('-').click()
@@ -72,10 +76,12 @@ describe('Arithmetic Operation', () => {
       .get('section > div:last button').contains(')').click()
       .get('section > div:last button').contains('=').click();
     cy
-      .get('section div:first').should('have.text', '-3')
+      .get('section div:first span:first').should('have.text', '(-2-1)')
+      .get('section div:first span:last').should('have.text', '-3')
       .get('section > div:last button').contains('CE').click();
     cy
-      .get('section div:first').should('have.text', '');
+      .get('section div:first span:first').should('have.text', '')
+      .get('section div:first span:last').should('have.text', '');
   });
 
 });
@@ -109,13 +115,15 @@ describe('Display module', () => {
 
   it('it check showing display', () => {
     cy
-      .get('section div:first').should('have.text', '')
+      .get('section div:first span:first').should('have.text', '')
+      .get('section div:first span:last').should('have.text', '')
       .get('section > div:last button').contains('1').click()
       .get('section > div:last button').contains('+').click()
       .get('section > div:last button').contains('2').click();
 
     cy
-      .get('section div:first').should('have.text', '1+2');
+      .get('section div:first span:first').should('have.text', '1+2')
+      .get('section div:first span:last').should('have.text', '2');
   });
 });
 

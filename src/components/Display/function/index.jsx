@@ -15,11 +15,7 @@ export const Display = memo(({ display, preDisplay }) => (
   </DisplayContainer>
 ));
 
-Display.defaultProps = {
-  preDisplay: '',
-};
-
 Display.propTypes = {
   display: PropTypes.string.isRequired,
-  preDisplay: PropTypes.string,
+  preDisplay: PropTypes.string.isRequired,
 };

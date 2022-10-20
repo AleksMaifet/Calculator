@@ -21,16 +21,12 @@ export class ErrorBoundary extends React.Component {
     };
   }
 
-  componentDidCatch(error, errorInfo) {
-    console.log(error, errorInfo);
-  }
-
   render() {
     const { children } = this.props;
     const { hasError } = this.state;
     if (hasError) {
       return (
-        <ErrorContainer id="errorContainer">
+        <ErrorContainer>
           <ErrorText>{ERROR_TITLE}</ErrorText>
         </ErrorContainer>
       );
