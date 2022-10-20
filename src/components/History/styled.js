@@ -12,7 +12,7 @@ export const HistoryTitle = styled.h3`
   font-size: ${theme.textStyle.md}rem;
   text-align: center;
   cursor: pointer;
-  color: ${({ isOpen }) => (isOpen ? theme.Colors.black : theme.Colors.neutral)};
+  color: ${({ isOpen }) => (isOpen ? theme.Colors.black : theme.Colors.gray)};
 `;
 
 export const HistoryList = styled.ul`
