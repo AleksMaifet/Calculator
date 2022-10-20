@@ -11,14 +11,15 @@ import {
 
 const HISTORY_TITLE = 'History';
 
-export const History = memo(({ historyList, isShowHistory }) => (
-  <HistoryContainer isOpen={isShowHistory}>
-    <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
-    <HistoryList>
-      {historyList &&
-        historyList.map((list, i) => (
-          <HistoryListItem key={`${list + i}`}>{list}</HistoryListItem>
-        ))}
+export const History = memo(({ historyList, isShowHistory, onPressHandle }) => (
+  <HistoryContainer>
+    <HistoryTitle isOpen={isShowHistory} onClick={e => onPressHandle(e)}>
+      {HISTORY_TITLE}
+    </HistoryTitle>
+    <HistoryList isOpen={isShowHistory}>
+      {historyList.map((list, i) => (
+        <HistoryListItem key={`${list + i}`}>{list}</HistoryListItem>
+      ))}
     </HistoryList>
   </HistoryContainer>
 ));

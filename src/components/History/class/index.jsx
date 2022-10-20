@@ -9,16 +9,19 @@ import {
   HistoryListItem,
   HistoryTitle,
 } from '@/components/History/styled';
+import { keypadHandle } from '@/utills';
 
 const HISTORY_TITLE = 'History';
 
 class History extends PureComponent {
   render() {
-    const { historyList, isShowHistory } = this.props;
+    const { historyList, isShowHistory, setPressEvent } = this.props;
     return (
-      <HistoryContainer isOpen={isShowHistory}>
-        <HistoryTitle>{HISTORY_TITLE}</HistoryTitle>
-        <HistoryList>
+      <HistoryContainer>
+        <HistoryTitle isOpen={isShowHistory} onClick={e => setPressEvent(e)}>
+          {HISTORY_TITLE}
+        </HistoryTitle>
+        <HistoryList isOpen={isShowHistory}>
           {historyList.map((list, i) => (
             <HistoryListItem key={`${i + list}`}>{list}</HistoryListItem>
           ))}
@@ -32,9 +35,17 @@ const mapStateToProps = state => ({
   historyList: state.app.historyList,
   isShowHistory: state.app.isShowHistoryList,
 });
-export default connect(mapStateToProps)(History);
+
+const mapDispatchToProps = dispatch => ({
+  setPressEvent: event => {
+    keypadHandle(event, dispatch);
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(History);
 
 History.propTypes = {
   historyList: PropTypes.arrayOf(PropTypes.string).isRequired,
   isShowHistory: PropTypes.bool.isRequired,
+  setPressEvent: PropTypes.func.isRequired,
 };

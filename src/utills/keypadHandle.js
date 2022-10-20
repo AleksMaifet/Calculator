@@ -1,8 +1,15 @@
 import { Operators } from '@/constants';
-import { addToHistory, addValue, deleteValue, evaluate } from '@/store/actionCreators';
+import {
+  addToHistory,
+  addValue,
+  deleteValue,
+  evaluate,
+  toggleHistory,
+} from '@/store/actionCreators';
 import { calculatorManager } from '@/utills/calculatorManager';
 
 const { Equal, Remove, Reset, ChangeSymbol } = Operators;
+const HISTORY_TITLE = 'History';
 
 export const keypadHandle = (event, dispatch) => {
   let { target } = event;
@@ -30,6 +37,10 @@ export const keypadHandle = (event, dispatch) => {
     case ChangeSymbol: {
       calculatorManager.toggleSymbol();
       dispatch(addValue(calculatorManager.expression, calculatorManager.prevValue));
+      break;
+    }
+    case HISTORY_TITLE: {
+      dispatch(toggleHistory());
       break;
     }
     default: {

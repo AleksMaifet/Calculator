@@ -5,6 +5,7 @@ import {
   DELETE_VALUE,
   EVALUATE,
   SET_THEME_APP,
+  TOGGLE_HISTORY_APP,
 } from '@/constants';
 
 const BASE_THEME_APP = 'colored';
@@ -28,6 +29,11 @@ export const appReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         ...payload,
+      };
+    case TOGGLE_HISTORY_APP:
+      return {
+        ...state,
+        isShowHistoryList: !state.isShowHistoryList,
       };
     default:
       return state;

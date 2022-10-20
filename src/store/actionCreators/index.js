@@ -5,6 +5,7 @@ import {
   DELETE_VALUE,
   EVALUATE,
   SET_THEME_APP,
+  TOGGLE_HISTORY_APP,
 } from '@/constants';
 
 export const addValue = (expression, prevNumber) => ({
@@ -49,4 +50,8 @@ export const setTheme = themeApp => ({
   payload: {
     themeApp,
   },
+});
+
+export const toggleHistory = () => ({
+  type: TOGGLE_HISTORY_APP,
 });

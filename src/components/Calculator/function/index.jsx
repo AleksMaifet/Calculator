@@ -35,7 +35,11 @@ export const CalculatorComponent = () => {
         <Display display={expression} preDisplay={prevValue} />
         <Keypad onPressHandle={setPressEvent} />
       </CalculatorPanel>
-      <History isShowHistory={isShowHistory} historyList={history} />
+      <History
+        onPressHandle={setPressEvent}
+        isShowHistory={isShowHistory}
+        historyList={history}
+      />
     </CalculatorContainer>
   );
 };
