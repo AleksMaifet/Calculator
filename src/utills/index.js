@@ -5,3 +5,4 @@ export * from './evaluate';
 export * from './keypadHandle';
 export * from './expressionHelper';
 export * from './toggleSymbolHelper';
+export * from './synchronization';

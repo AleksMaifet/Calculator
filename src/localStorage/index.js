@@ -1,3 +1,5 @@
+import { synchronization } from '@/utills';
+
 const KEY = 'state';
 
 export const loadState = () => {
@@ -6,6 +8,7 @@ export const loadState = () => {
     if (serializedState === null) {
       return undefined;
     }
+    synchronization(JSON.parse(serializedState).app);
     return JSON.parse(serializedState);
   } catch (err) {
     return undefined;
