@@ -27,7 +27,7 @@ class CalculatorManager {
   }
 
   setCount(currentValue) {
-    if (/[\\+*)-]/.test(currentValue) && !this.expression.length) {
+    if (/[\\+*)/-]/.test(currentValue) && !this.expression.length) {
       return;
     }
 
