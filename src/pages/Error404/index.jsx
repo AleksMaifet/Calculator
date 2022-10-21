@@ -1,13 +1,12 @@
 import React from 'react';
 
 import { PageLayout } from '@/components/PageLayout';
+import { ERROR_TITLE_404 } from '@/constants';
 
 import { ErrorContainer } from './styled';
 
-const ERROR_TITLE = '404';
-
 export const Error404 = () => (
   <PageLayout>
-    <ErrorContainer>{ERROR_TITLE}</ErrorContainer>
+    <ErrorContainer>{ERROR_TITLE_404}</ErrorContainer>
   </PageLayout>
 );
