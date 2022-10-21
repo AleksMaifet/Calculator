@@ -22,9 +22,14 @@ export const parenthesisValidation = expression => {
   const leftParenthesis = expression.match(/\(/g);
   const rightParenthesis = expression.match(/\)/g);
 
-  if (leftParenthesis && rightParenthesis) {
-    if (leftParenthesis.length < rightParenthesis.length) {
+  if (rightParenthesis) {
+    if (!leftParenthesis) {
       return removeLastElement(expression);
+    }
+    if (leftParenthesis) {
+      if (leftParenthesis.length < rightParenthesis.length) {
+        return removeLastElement(expression);
+      }
     }
   }
 
